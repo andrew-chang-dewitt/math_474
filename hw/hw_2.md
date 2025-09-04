@@ -10,8 +10,6 @@ Math 474, Fall 2025 \
 
 ## problem 1
 
-### part (a)
-
 for sample, $S$:
 
 $$
@@ -24,6 +22,8 @@ $$
                  \}
 \end{aligned}
 $$
+
+### part (a)
 
 find the mean, $\bar{s}$:
 
@@ -93,7 +93,8 @@ dot plot of $S$:
 
 any outliers using only above analyses?
 
-no, $\bar{s}, \bar{{s}_{t}}$ & $s_{median}$ are all pretty close to the same value at $20.77$, $20.74$, & $20.61$ respectively.
+no, $\bar{s}, \bar{{s}_{t}}$ & $s_{median}$ are all pretty close to the
+same value at $20.77$, $20.74$, & $20.61$ respectively.
 
 ## problem 2
 
@@ -125,3 +126,52 @@ dot plot of $B$ & $A$:
 ![dot plot of B & A](/placeholder.png)
 
 :::
+
+### part (b)
+
+yes, it does appear that aging affected the polymer's tensile strength
+in a negative manner. nearly all data points in series $A$ measure
+lower than nearly all data points in series $B$.
+
+### part (c)
+
+find the mean for each sample, $\bar{b}$ and $\bar{a}$:
+
+$$
+\begin{aligned}
+\because   && \bar{x} &= \sum_{i=1}^{n} \frac{x_i}{n}, && \text{where } X := \text{ some set }, x_i \in X, \text{ and } n = |X| \\
+\\
+           && \bar{b} &= 2221.0 / 10 \\
+\therefore && \bar{b} &\approx 222.1 \\
+\\
+           && \bar{a} &= 2100.0 / 10 \\
+\therefore && \bar{a} &\approx 210.0 && \blacksquare
+\end{aligned}
+$$
+
+### part (d)
+
+and the median for each, $b_{med}$ and $a_{med}$:
+
+$$
+\begin{aligned}
+\because   &&      S' &:= \textit{Sorted}(S) \\
+           &&         &\equiv \begin{aligned} \{
+           &&             & 18.04, 18.71, 18.92, 19.25, 19.29, \\
+           &&             & 19.44, 19.77, 20.17, 20.33, 20.50, \\
+           &&             & 20.72, 21.12, 21.41, 21.77, 21.81, \\
+           &&             & 22.11, 22.43, 22.85, 23.00, 23.71
+           &&            \}, \end{aligned} \\
+           && s_{med} &:= \text{ middle value in } S',
+                \text{and}\\
+           &&     |S| &=  20 \\
+
+\therefore && s_{med} &= \frac{
+                             s_{\frac{\big\lvert{S}\big\rvert}{2}}
+                           + s_{\frac{\big\lvert{S}\big\rvert}{2} + 1}
+                         }{ 2 } \\
+           &&         &= \frac{ s_{10} + s_{11} }{ 2 } \\
+           &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
+           && s_{med} &\approx 20.61 && \blacksquare
+\end{aligned}
+$$
