@@ -8,8 +8,6 @@ Math 474, Fall 2025 \
 
 :::
 
-:::section
-
 ## problem 1
 
 for sample, $S$:
@@ -109,13 +107,10 @@ dot plot of $S$:
 
 ### part (d)
 
-any outliers using only above analyses?
+> any outliers using only above analyses?
 
 no, $\bar{s}$, $\bar{{s}_{t}}$ & $s_{med}$ are all pretty close to the
 same value at $20.77$, $20.74$, & $20.61$ respectively.
-
-:::
-:::section
 
 ## problem 2
 
@@ -210,9 +205,6 @@ $$
 \end{aligned}
 $$
 
-:::
-:::section
-
 ## problem 3
 
 using $S$ from **problem 1** (above) calculate the range of data of $S$:
@@ -234,7 +226,7 @@ sample variance of $S$:
 $$
 \begin{aligned}
 (16) && \because   && s^2 &= \sum_{i=1}^{n}{\frac{(x_i - \bar{x})^2}{n - 1}}, &&
-                        \text{where } x_i \in \text{some set } X \text{ and } n = |X| &&
+                        \text{where } x_i \in X \text{ and } n = |X| &&
   \textit{def. 1.3 [Walpole, Myers, Myers, Ye]} \\
 \\
      &&            && s^2 &= \sum_{i=1}^{n}{\frac{ ( s_i - \bar{s} )^2 }{n - 1}} \\
@@ -253,9 +245,6 @@ $$
      && \therefore && s &\approx 1.59 && \blacksquare
 \end{aligned}
 $$
-
-:::
-:::section
 
 ## problem 4
 
@@ -311,5 +300,3 @@ yes&mdash;in addition to the evidence observed from the dot plot in **problem
 2, part (b)**, the mean tensile strength after aging, $\bar{a}$, is less than
 that of the polymer before aging, $\bar{b}$, by about two standard deviation
 of $A$, $s_A$.
-
-:::

@@ -13,7 +13,19 @@
   section {
     break-inside: avoid-page;
   }
-  h2:has(+ section) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid-page;
+  }
+  p {
+    break-inside: auto;
+  }
+  p:has(+ pre > code),
+  p:has(+ .katex-display) {
     break-after: avoid-page;
   }
 
@@ -21,9 +33,6 @@
     margin-top: 0;
   }
 
-  p {
-    break-inside: auto;
-  }
   html {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
