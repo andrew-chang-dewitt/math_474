@@ -1,0 +1,127 @@
+:::hgroup{.titlegroup}
+
+# hw 2
+
+Andrew Chang-DeWitt \
+Math 474, Fall 2025 \
+2025 Sept. 2
+
+:::
+
+## problem 1
+
+### part (a)
+
+for sample, $S$:
+
+$$
+\begin{aligned}
+\because && S := \{
+                  & 18.71, 21.41, 20.72, 21.81, 19.29, \\
+         &&       & 22.43, 20.17, 23.71, 19.44, 20.50, \\
+         &&       & 18.92, 20.33, 23.00, 22.85, 19.25, \\
+         &&       & 21.77, 22.11, 19.77, 18.04, 21.12
+                 \}
+\end{aligned}
+$$
+
+find the mean, $\bar{s}$:
+
+$$
+\begin{aligned}
+\because   && \bar{s} &= \sum_{i=1}^{n} \frac{s_i}{n}, && \text{where } s_i \in S \text{ and } n = |S| \\
+           &&         &= 415.35 / 20 \\
+\therefore && \bar{s} &\approx 20.77
+\end{aligned}
+$$
+
+and the median, $s_{med}$:
+
+$$
+\begin{aligned}
+\because   &&      S' &:= \textit{Sorted}(S) \\
+           &&         &\equiv \begin{aligned} \{
+           &&             & 18.04, 18.71, 18.92, 19.25, 19.29, \\
+           &&             & 19.44, 19.77, 20.17, 20.33, 20.50, \\
+           &&             & 20.72, 21.12, 21.41, 21.77, 21.81, \\
+           &&             & 22.11, 22.43, 22.85, 23.00, 23.71
+           &&            \}, \end{aligned} \\
+           && s_{med} &:= \text{ middle value in } S',
+                \text{and}\\
+           &&     |S| &=  20 \\
+
+\therefore && s_{med} &= \frac{
+                             s_{\frac{\big\lvert{S}\big\rvert}{2}}
+                           + s_{\frac{\big\lvert{S}\big\rvert}{2} + 1}
+                         }{ 2 } \\
+           &&         &= \frac{ s_{10} + s_{11} }{ 2 } \\
+           &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
+           && s_{med} &\approx 20.61 && \blacksquare
+\end{aligned}
+$$
+
+### part (b)
+
+find 10% trimmed mean for $S$:
+
+$$
+\begin{aligned}
+\because   && |S| &= 20 \implies 10\% \text{ of } |S| \equiv 2 \\
+           && S_t &:= \textit{Trim}(S',10\%) && \text{trim 2 elements from each end of sorted S} \\
+           &&     &\equiv \begin{aligned} \{
+                     & 18.92, 19.25, 19.29, 19.44, 19.77, \\
+                     & 20.17, 20.33, 20.50, 20.72, 21.12, \\
+                     & 21.41, 21.77, 21.81, 22.11, 22.43, \\
+                     & 22.85
+                    \} \end{aligned} \\
+           && \bar{s_t} &= 331.89 / 16 \\
+\therefore && \bar{s_t} &\approx {20.74} && \blacksquare
+\end{aligned}
+$$
+
+### part (c)
+
+dot plot of $S$:
+
+:::{#img-1-2-c}
+
+![dot plot of S](/placeholder.png)
+
+:::
+
+### part (d)
+
+any outliers using only above analyses?
+
+no, $\bar{s}, \bar{{s}_{t}}$ & $s_{median}$ are all pretty close to the same value at $20.77$, $20.74$, & $20.61$ respectively.
+
+## problem 2
+
+given datasets on tensile strength of some polymer before aging, $B$, & after aging, $A$:
+
+$$
+\begin{aligned}
+\because && B &:= \begin{aligned}
+                    \{
+                     & 227, 222, 218, 217, 225, \\
+                     & 218, 216, 229, 228, 221
+                    \}, \text{and}
+                 \end{aligned} \\
+         && A &:= \begin{aligned}
+                    \{
+                     & 219, 214, 215, 211, 209, \\
+                     & 218, 203, 205, 201, 205
+                    \}
+                 \end{aligned} \\
+\end{aligned}
+$$
+
+### part (a)
+
+dot plot of $B$ & $A$:
+
+:::{#img-1-3-a}
+
+![dot plot of B & A](/placeholder.png)
+
+:::
