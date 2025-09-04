@@ -8,6 +8,8 @@ Math 474, Fall 2025 \
 
 :::
 
+:::section
+
 ## problem 1
 
 for sample, $S$:
@@ -41,11 +43,11 @@ $$
 \begin{aligned}
 \because   &&      S' &:= \textit{Sorted}(S) \\
            &&         &\equiv \begin{aligned} \{
-           &&             & 18.04, 18.71, 18.92, 19.25, 19.29, \\
-           &&             & 19.44, 19.77, 20.17, 20.33, 20.50, \\
-           &&             & 20.72, 21.12, 21.41, 21.77, 21.81, \\
-           &&             & 22.11, 22.43, 22.85, 23.00, 23.71
-           &&            \}, \end{aligned} \\
+                          & 18.04, 18.71, 18.92, 19.25, 19.29, \\
+                          & 19.44, 19.77, 20.17, 20.33, 20.50, \\
+                          & 20.72, 21.12, 21.41, 21.77, 21.81, \\
+                          & 22.11, 22.43, 22.85, 23.00, 23.71
+                         \}, \end{aligned} \\
            && s_{med} &:= \text{ middle value in } S',
                 \text{and}\\
            &&     |S| &=  20 \\
@@ -67,7 +69,7 @@ find 10% trimmed mean for $S$:
 $$
 \begin{aligned}
 \because   && |S| &= 20 \implies 10\% \text{ of } |S| \equiv 2 \\
-           && S_t &:= \textit{Trim}(S',10\%) && \text{trim 2 elements from each end of sorted S} \\
+           && S_t &:= \textit{Trim}(S',10\%) \\
            &&     &\equiv \begin{aligned} \{
                      & 18.92, 19.25, 19.29, 19.44, 19.77, \\
                      & 20.17, 20.33, 20.50, 20.72, 21.12, \\
@@ -83,18 +85,17 @@ $$
 
 dot plot of $S$:
 
-:::{#img-1-2-c}
-
-![dot plot of S](/placeholder.png)
-
-:::
+<img id="img-1-2-c" alt="dot plot of S"/>
 
 ### part (d)
 
 any outliers using only above analyses?
 
-no, $\bar{s}, \bar{{s}_{t}}$ & $s_{median}$ are all pretty close to the
+no, $\bar{s}$, $\bar{{s}_{t}}$ & $s_{median}$ are all pretty close to the
 same value at $20.77$, $20.74$, & $20.61$ respectively.
+
+:::
+:::section
 
 ## problem 2
 
@@ -121,11 +122,7 @@ $$
 
 dot plot of $B$ & $A$:
 
-:::{#img-1-3-a}
-
-![dot plot of B & A](/placeholder.png)
-
-:::
+<img id="img-1-3-a" alt="dot plot of B & A"/>
 
 ### part (b)
 
@@ -151,13 +148,15 @@ $$
 
 ### part (d)
 
-and the median for $b_{med}$:
+the median for $b_{med}$:
 
 $$
 \begin{aligned}
 \because   &&      B' &:= \textit{Sorted}(B) \\
            &&         &\equiv \begin{aligned} \{
-           &&            \}, \end{aligned} \\
+                          & 216, 217, 218, 218, 221, \\
+                          & 222, 225, 227, 228, 229
+                         \}, \end{aligned} \\
            && b_{med} &:= \text{ middle value in } B',
                 \text{and}\\
            &&     |B| &=  10 \\
@@ -167,18 +166,20 @@ $$
                            + b_{\frac{\big\lvert{B}\big\rvert}{2} + 1}
                          }{ 2 } \\
            &&         &= \frac{ b_{5} + b_{6} }{ 2 } \\
-           &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
-           && b_{med} &\approx 20.61 && \blacksquare
+           &&         &= \frac{ 221 + 222 }{ 2 } \\
+           && b_{med} &= 221.5 && \blacksquare
 \end{aligned}
 $$
 
-and the median for $a_{med}$:
+and for $a_{med}$:
 
 $$
 \begin{aligned}
 \because   &&      A' &:= \textit{Sorted}(A) \\
            &&         &\equiv \begin{aligned} \{
-           &&            \}, \end{aligned} \\
+                          & 201, 203, 205, 205, 209, \\
+                          & 211, 214, 215, 218, 219
+                         \}, \end{aligned} \\
            && a_{med} &:= \text{ middle value in } A',
                 \text{and}\\
            &&     |A| &=  10 \\
@@ -188,7 +189,53 @@ $$
                            + a_{\frac{\big\lvert{A}\big\rvert}{2} + 1}
                          }{ 2 } \\
            &&         &= \frac{ a_{5} + a_{6} }{ 2 } \\
-           &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
-           && a_{med} &\approx 20.61 && \blacksquare
+           &&         &= \frac{ 209 + 211 }{ 2 } \\
+           && a_{med} &= 210 && \blacksquare
 \end{aligned}
 $$
+
+:::
+:::section
+
+## problem 3
+
+using $S$ from **problem 1** (above) calculate the range of data of $S$:
+
+$$
+\begin{aligned}
+\because   && Range(X) &= X_{max} - X_{min}, && \text{where } X := \text{some set} \\
+\\
+           && Range(S) &= S_{max} - S_{min} \\
+           &&          &= 23.71 - 18.04 \\
+\therefore && Range(S) &= 5.67
+\end{aligned}
+$$
+
+sample variance of $S$:
+
+$$
+\begin{aligned}
+\because   && s^2 &= \sum_{i=1}^{n}{\frac{(x_i - \bar{x})^2}{n - 1}}, &&
+                  \text{where } x_i \in \text{some set } X \text{ and } n = |X|\\
+\\
+           && s^2 &= \sum_{i=1}^{n}{\frac{ ( s_i - \bar{s} )^2 }{n - 1}} \\
+\therefore && s^2 &\approx 2.53
+\end{aligned}
+$$
+
+& sample standard deviation of $S$:
+
+$$
+\begin{aligned}
+\because   && s &= \sqrt{s^2} \\
+           &&   &\approx \sqrt{2.53} \\
+\therefore && s &\approx 1.59
+\end{aligned}
+$$
+
+:::
+:::section
+
+## problem 4
+
+:::

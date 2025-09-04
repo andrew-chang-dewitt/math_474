@@ -2,6 +2,8 @@
 .katex-display,
 .katex-display > .katex {
   text-align: left;
+  background: var(--code-color-vim-normal-bg);
+  color: var(--code-color-vim-normal-fg);
 }
 /*
 .katex-display {

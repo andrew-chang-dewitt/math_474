@@ -6,7 +6,7 @@
 @media print {
   :root {
     font-size: 11pt;
-    background-color: white;
+    background-color: white !important;
   }
 
   aside,
@@ -30,14 +30,16 @@
     margin: 0 auto;
   }
   body {
-    margin: 0;
+    margin: 0 0.5in;
   }
 }
 
+/*
 @page {
   margin: 0.5in;
 }
 
 @page :first {
-  /* margin-top: 2in; */
+  margin-top: 2in;
 }
+   */
