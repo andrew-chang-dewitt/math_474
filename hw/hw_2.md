@@ -16,12 +16,12 @@ for sample, $S$:
 
 $$
 \begin{aligned}
-\because && S := \{
-                  & 18.71, 21.41, 20.72, 21.81, 19.29, \\
-         &&       & 22.43, 20.17, 23.71, 19.44, 20.50, \\
-         &&       & 18.92, 20.33, 23.00, 22.85, 19.25, \\
-         &&       & 21.77, 22.11, 19.77, 18.04, 21.12
-                 \}
+(1) && && S &:= \begin{aligned} \{
+                         & 18.71, 21.41, 20.72, 21.81, 19.29, \\
+                         & 22.43, 20.17, 23.71, 19.44, 20.50, \\
+                         & 18.92, 20.33, 23.00, 22.85, 19.25, \\
+                         & 21.77, 22.11, 19.77, 18.04, 21.12
+                        \} \end{aligned}
 \end{aligned}
 $$
 
@@ -31,9 +31,16 @@ find the mean, $\bar{s}$:
 
 $$
 \begin{aligned}
-\because   && \bar{s} &= \sum_{i=1}^{n} \frac{s_i}{n}, && \text{where } s_i \in S \text{ and } n = |S| \\
-           &&         &= 415.35 / 20 \\
-\therefore && \bar{s} &\approx 20.77
+(2) && \because   && \bar{x} &= \sum_{i=1}^{n} \frac{x_i}{n}, && \text{where } x_i \in X \text{ and } n = |X| &&
+  \textit{\{def. 1.1 [Walpole, Myers, Myers, Ye]\}} \\
+    &&            &&         &= \frac{1}{n}( \sum_{i=1}^{n} x_i ) && &&
+  \textit{factor n out of summation} \\
+\\
+    &&            && \bar{s} &= \frac{\sum S}{|S|} && &&
+  \textit{\{1,2\}} \\
+    &&            &&         &= \frac{415.35}{20}  && &&
+  \textit{substitute values} \\
+(3) && \therefore && \bar{s} &\approx 20.77
 \end{aligned}
 $$
 
@@ -41,24 +48,32 @@ and the median, $s_{med}$:
 
 $$
 \begin{aligned}
-\because   &&      S' &:= \textit{Sorted}(S) \\
-           &&         &\equiv \begin{aligned} \{
-                          & 18.04, 18.71, 18.92, 19.25, 19.29, \\
-                          & 19.44, 19.77, 20.17, 20.33, 20.50, \\
-                          & 20.72, 21.12, 21.41, 21.77, 21.81, \\
-                          & 22.11, 22.43, 22.85, 23.00, 23.71
-                         \}, \end{aligned} \\
-           && s_{med} &:= \text{ middle value in } S',
-                \text{and}\\
-           &&     |S| &=  20 \\
+(4) && \because   && x_{med} &= \Bigg\lbrace\begin{aligned}
+                                  & \frac{
+                                        x_{\frac{\big\lvert{X}\big\rvert}{2}}
+                                      + x_{\frac{\big\lvert{X}\big\rvert}{2} + 1}
+                                    }{ 2 }, & \text{if } & |X| \mod 2 != 0 \\
+                                  & x_{\frac{\big\lvert{X}\big\rvert}{2}}, & \text{else} &
+                                \end{aligned}, &&
+  \textit{piecewise definition of median}\\
+(5) &&            &&      S' &:= \textit{Sorted}(S) \\
+    &&            &&         &\equiv \begin{aligned} \{
+                                 & 18.04, 18.71, 18.92, 19.25, 19.29, \\
+                                 & 19.44, 19.77, 20.17, 20.33, 20.50, \\
+                                 & 20.72, 21.12, 21.41, 21.77, 21.81, \\
+                                 & 22.11, 22.43, 22.85, 23.00, 23.71
+                                \} \end{aligned} &&
+  \textit{\{1\}}\\
+\\
 
-\therefore && s_{med} &= \frac{
-                             s_{\frac{\big\lvert{S}\big\rvert}{2}}
-                           + s_{\frac{\big\lvert{S}\big\rvert}{2} + 1}
-                         }{ 2 } \\
-           &&         &= \frac{ s_{10} + s_{11} }{ 2 } \\
-           &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
-           && s_{med} &\approx 20.61 && \blacksquare
+    &&            && s_{med} &= \frac{
+                                    s'_{\frac{\big\lvert{S}\big\rvert}{2}}
+                                  + s'_{\frac{\big\lvert{S}\big\rvert}{2} + 1}
+                                }{ 2 } &&
+  \textit{\{4,5\}} \\
+    &&            &&         &= \frac{ s_{10} + s_{11} }{ 2 } \\
+    &&            &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
+    && \therefore && s_{med} &\approx 20.61 && \blacksquare
 \end{aligned}
 $$
 
@@ -68,16 +83,21 @@ find 10% trimmed mean for $S$:
 
 $$
 \begin{aligned}
-\because   && |S| &= 20 \implies 10\% \text{ of } |S| \equiv 2 \\
-           && S_t &:= \textit{Trim}(S',10\%) \\
-           &&     &\equiv \begin{aligned} \{
-                     & 18.92, 19.25, 19.29, 19.44, 19.77, \\
-                     & 20.17, 20.33, 20.50, 20.72, 21.12, \\
-                     & 21.41, 21.77, 21.81, 22.11, 22.43, \\
-                     & 22.85
-                    \} \end{aligned} \\
-           && \bar{s_t} &= 331.89 / 16 \\
-\therefore && \bar{s_t} &\approx {20.74} && \blacksquare
+    && \because   && S_t &:= \textit{Trim}(S',10\%) &&
+  \textit{trim 10\% (2) values from each end of S'}\\
+(6) &&            &&     &= \begin{aligned} \{
+                             & 18.92, 19.25, 19.29, 19.44, 19.77, \\
+                             & 20.17, 20.33, 20.50, 20.72, 21.12, \\
+                             & 21.41, 21.77, 21.81, 22.11, 22.43, \\
+                             & 22.85
+                            \} \end{aligned} &&
+  \textit{\{5\}} \\
+\\
+    &&            && \bar{s_t} &= \frac{\sum S_t}{|S_t|} &&
+  \textit{\{2,6\}} \\
+    &&            && \bar{s_t} &= 331.89 / 16 &&
+  \textit{substitute values} \\
+    && \therefore && \bar{s_t} &\approx {20.74} && \blacksquare
 \end{aligned}
 $$
 
@@ -91,7 +111,7 @@ dot plot of $S$:
 
 any outliers using only above analyses?
 
-no, $\bar{s}$, $\bar{{s}_{t}}$ & $s_{median}$ are all pretty close to the
+no, $\bar{s}$, $\bar{{s}_{t}}$ & $s_{med}$ are all pretty close to the
 same value at $20.77$, $20.74$, & $20.61$ respectively.
 
 :::
@@ -103,18 +123,18 @@ given datasets on tensile strength of some polymer before aging, $B$, & after ag
 
 $$
 \begin{aligned}
-\because && B &:= \begin{aligned}
-                    \{
-                     & 227, 222, 218, 217, 225, \\
-                     & 218, 216, 229, 228, 221
-                    \}, \text{and}
-                 \end{aligned} \\
-         && A &:= \begin{aligned}
-                    \{
-                     & 219, 214, 215, 211, 209, \\
-                     & 218, 203, 205, 201, 205
-                    \}
-                 \end{aligned} \\
+(7) && \because && B &:= \begin{aligned}
+                           \{
+                            & 227, 222, 218, 217, 225, \\
+                            & 218, 216, 229, 228, 221
+                           \}, \text{and}
+                        \end{aligned} \\
+(8) &&          && A &:= \begin{aligned}
+                           \{
+                            & 219, 214, 215, 211, 209, \\
+                            & 218, 203, 205, 201, 205
+                           \}
+                        \end{aligned} \\
 \end{aligned}
 $$
 
@@ -136,13 +156,17 @@ find the mean for each sample, $\bar{b}$ and $\bar{a}$:
 
 $$
 \begin{aligned}
-\because   && \bar{x} &= \sum_{i=1}^{n} \frac{x_i}{n}, && \text{where } X := \text{ some set }, x_i \in X, \text{ and } n = |X| \\
+     &&            && \bar{b} &= \frac{\sum B}{|B|} &&
+   \textit{\{2,7\}} \\
+     &&            &&         &= 2221.0 / 10 &&
+  \textit{substitute values} \\
+ (9) && \therefore && \bar{b} &= 222.1 \\
 \\
-           && \bar{b} &= 2221.0 / 10 \\
-\therefore && \bar{b} &\approx 222.1 \\
-\\
-           && \bar{a} &= 2100.0 / 10 \\
-\therefore && \bar{a} &\approx 210.0 && \blacksquare
+     &&            && \bar{a} &= \frac{\sum A}{|A|} &&
+   \textit{\{2,8\}} \\
+     &&            &&         &= 2100.0 / 10 &&
+  \textit{substitute values} \\
+(10) && \therefore && \bar{a} &= 210.0 && \blacksquare
 \end{aligned}
 $$
 
@@ -152,22 +176,18 @@ the median for $b_{med}$:
 
 $$
 \begin{aligned}
-\because   &&      B' &:= \textit{Sorted}(B) \\
-           &&         &\equiv \begin{aligned} \{
-                          & 216, 217, 218, 218, 221, \\
-                          & 222, 225, 227, 228, 229
-                         \}, \end{aligned} \\
-           && b_{med} &:= \text{ middle value in } B',
-                \text{and}\\
-           &&     |B| &=  10 \\
+     && \because   &&      B' &:= \textit{Sorted}(B) \\
+(11) &&            &&         &= \begin{aligned} \{
+                                  & 216, 217, 218, 218, 221, \\
+                                  & 222, 225, 227, 228, 229
+                                 \} \end{aligned} &&
+  \textit{\{7\}} \\
 \\
-\therefore && b_{med} &= \frac{
-                             b_{\frac{\big\lvert{B}\big\rvert}{2}}
-                           + b_{\frac{\big\lvert{B}\big\rvert}{2} + 1}
-                         }{ 2 } \\
-           &&         &= \frac{ b_{5} + b_{6} }{ 2 } \\
-           &&         &= \frac{ 221 + 222 }{ 2 } \\
-           && b_{med} &= 221.5 && \blacksquare
+     &&            &&         &= \frac{ b_{5} + b_{6} }{ 2 } &&
+  \textit{\{2,11\}} \\
+     &&            &&         &= \frac{ 221 + 222 }{ 2 } &&
+  \textit{substitute values} \\
+(12) && \therefore && b_{med} &= 221.5
 \end{aligned}
 $$
 
@@ -175,22 +195,18 @@ and for $a_{med}$:
 
 $$
 \begin{aligned}
-\because   &&      A' &:= \textit{Sorted}(A) \\
-           &&         &\equiv \begin{aligned} \{
-                          & 201, 203, 205, 205, 209, \\
-                          & 211, 214, 215, 218, 219
-                         \}, \end{aligned} \\
-           && a_{med} &:= \text{ middle value in } A',
-                \text{and}\\
-           &&     |A| &=  10 \\
+     && \because   &&      A' &:= \textit{Sorted}(A) \\
+(13) &&            &&         &= \begin{aligned} \{
+                                  & 201, 203, 205, 205, 209, \\
+                                  & 211, 214, 215, 218, 219
+                                 \} \end{aligned} &&
+  \textit{\{8\}} \\
 \\
-\therefore && a_{med} &= \frac{
-                             a_{\frac{\big\lvert{A}\big\rvert}{2}}
-                           + a_{\frac{\big\lvert{A}\big\rvert}{2} + 1}
-                         }{ 2 } \\
-           &&         &= \frac{ a_{5} + a_{6} }{ 2 } \\
-           &&         &= \frac{ 209 + 211 }{ 2 } \\
-           && a_{med} &= 210 && \blacksquare
+     &&            &&         &= \frac{ a_{5} + a_{6} }{ 2 } &&
+  \textit{\{2,13\}} \\
+     &&            &&         &= \frac{ 209 + 211 }{ 2 } &&
+  \textit{substitute values} \\
+(14) && \therefore && a_{med} &= 210 && \blacksquare
 \end{aligned}
 $$
 
@@ -203,11 +219,13 @@ using $S$ from **problem 1** (above) calculate the range of data of $S$:
 
 $$
 \begin{aligned}
-\because   && Range(X) &= X_{max} - X_{min}, && \text{where } X := \text{some set} \\
+(15) && \because   && Range(X) &= X_{max} - X_{min}, && \text{where } X := \text{some set} &&
+  \textit{[Walpole, Myers, Myers, Ye]} \\
 \\
-           && Range(S) &= S_{max} - S_{min} \\
-           &&          &= 23.71 - 18.04 \\
-\therefore && Range(S) &= 5.67
+     &&            && Range(S) &= S_{max} - S_{min} &&
+  \textit{\{1,15\}}\\
+     &&            &&          &= 23.71 - 18.04 \\
+     && \therefore && Range(S) &= 5.67
 \end{aligned}
 $$
 
@@ -215,11 +233,12 @@ sample variance of $S$:
 
 $$
 \begin{aligned}
-\because   && s^2 &= \sum_{i=1}^{n}{\frac{(x_i - \bar{x})^2}{n - 1}}, &&
-                  \text{where } x_i \in \text{some set } X \text{ and } n = |X|\\
+(16) && \because   && s^2 &= \sum_{i=1}^{n}{\frac{(x_i - \bar{x})^2}{n - 1}}, &&
+                        \text{where } x_i \in \text{some set } X \text{ and } n = |X| &&
+  \textit{def. 1.3 [Walpole, Myers, Myers, Ye]} \\
 \\
-           && s^2 &= \sum_{i=1}^{n}{\frac{ ( s_i - \bar{s} )^2 }{n - 1}} \\
-\therefore && s^2 &\approx 2.53
+     &&            && s^2 &= \sum_{i=1}^{n}{\frac{ ( s_i - \bar{s} )^2 }{n - 1}} \\
+(17) && \therefore && s^2 &\approx 2.53
 \end{aligned}
 $$
 
@@ -227,9 +246,11 @@ $$
 
 $$
 \begin{aligned}
-\because   && s &= \sqrt{s^2} \\
-           &&   &\approx \sqrt{2.53} \\
-\therefore && s &\approx 1.59
+(18) && \because   && s &= \sqrt{s^2}  &&
+  \textit{def. 1.3 [Walpole, Myers, Myers, Ye]} \\
+     &&            &&   &\approx \sqrt{2.53} &&
+  \textit{\{17,18\}} \\
+     && \therefore && s &\approx 1.59 && \blacksquare
 \end{aligned}
 $$
 
@@ -237,5 +258,58 @@ $$
 :::section
 
 ## problem 4
+
+for samples $B$ & $A$ in **problem 2** (above), calculate the following
+
+### part (a)
+
+sample variance of $B$, $s_B^2$:
+
+$$
+\begin{aligned}
+     && \because   && s_B^2 &= \sum_{i=1}^{n}{\frac{ ( b_i - \bar{b} )^2 }{n - 1}} &&
+  \textit{\{7,17\}} \\
+(19) && \therefore && s_B^2 &\approx 23.66
+     && \end{aligned}
+$$
+
+& of $A$, $s_A^2$:
+
+$$
+\begin{aligned}
+     && \because   && s_A^2 &= \sum_{i=1}^{n}{\frac{ ( a_i - \bar{a} )^2 }{n - 1}} &&
+          \textit{\{8,17\}} \\
+(20) && \therefore && s_A^2 &\approx 40.89
+\end{aligned}
+$$
+
+and standard deviation of $B$, $s_B$:
+
+$$
+\begin{aligned}
+\quad\quad\space && \because   && s_B &= \sqrt{s_B^2} &&
+  \textit{\{7,18\}} \\
+     &&            &&   &\approx \sqrt{23.66} \\
+     && \therefore && s_B &\approx 4.86
+\end{aligned}
+$$
+
+and of $A$, $s_A$:
+
+$$
+\begin{aligned}
+\quad\quad\space && \because   && s_A &= \sqrt{s_A^2} &&
+  \textit{\{8,18\}} \\
+     &&            &&   &\approx \sqrt{40.89} \\
+     && \therefore && s_A &\approx 6.39 && \blacksquare
+\end{aligned}
+$$
+
+### part (b)
+
+yes&mdash;in addition to the evidence observed from the dot plot in **problem
+2, part (b)**, the mean tensile strength after aging, $\bar{a}$, is less than
+that of the polymer before aging, $\bar{b}$, by about two standard deviation
+of $A$, $s_A$.
 
 :::
