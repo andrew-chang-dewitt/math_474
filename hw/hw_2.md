@@ -151,27 +151,44 @@ $$
 
 ### part (d)
 
-and the median for each, $b_{med}$ and $a_{med}$:
+and the median for $b_{med}$:
 
 $$
 \begin{aligned}
-\because   &&      S' &:= \textit{Sorted}(S) \\
+\because   &&      B' &:= \textit{Sorted}(B) \\
            &&         &\equiv \begin{aligned} \{
-           &&             & 18.04, 18.71, 18.92, 19.25, 19.29, \\
-           &&             & 19.44, 19.77, 20.17, 20.33, 20.50, \\
-           &&             & 20.72, 21.12, 21.41, 21.77, 21.81, \\
-           &&             & 22.11, 22.43, 22.85, 23.00, 23.71
            &&            \}, \end{aligned} \\
-           && s_{med} &:= \text{ middle value in } S',
+           && b_{med} &:= \text{ middle value in } B',
                 \text{and}\\
-           &&     |S| &=  20 \\
-
-\therefore && s_{med} &= \frac{
-                             s_{\frac{\big\lvert{S}\big\rvert}{2}}
-                           + s_{\frac{\big\lvert{S}\big\rvert}{2} + 1}
+           &&     |B| &=  10 \\
+\\
+\therefore && b_{med} &= \frac{
+                             b_{\frac{\big\lvert{B}\big\rvert}{2}}
+                           + b_{\frac{\big\lvert{B}\big\rvert}{2} + 1}
                          }{ 2 } \\
-           &&         &= \frac{ s_{10} + s_{11} }{ 2 } \\
+           &&         &= \frac{ b_{5} + b_{6} }{ 2 } \\
            &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
-           && s_{med} &\approx 20.61 && \blacksquare
+           && b_{med} &\approx 20.61 && \blacksquare
+\end{aligned}
+$$
+
+and the median for $a_{med}$:
+
+$$
+\begin{aligned}
+\because   &&      A' &:= \textit{Sorted}(A) \\
+           &&         &\equiv \begin{aligned} \{
+           &&            \}, \end{aligned} \\
+           && a_{med} &:= \text{ middle value in } A',
+                \text{and}\\
+           &&     |A| &=  10 \\
+\\
+\therefore && a_{med} &= \frac{
+                             a_{\frac{\big\lvert{A}\big\rvert}{2}}
+                           + a_{\frac{\big\lvert{A}\big\rvert}{2} + 1}
+                         }{ 2 } \\
+           &&         &= \frac{ a_{5} + a_{6} }{ 2 } \\
+           &&         &= \frac{ 20.50 + 20.72 }{ 2 } \\
+           && a_{med} &\approx 20.61 && \blacksquare
 \end{aligned}
 $$
