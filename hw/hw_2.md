@@ -51,7 +51,7 @@ $$
                                         x_{\frac{\big\lvert{X}\big\rvert}{2}}
                                       + x_{\frac{\big\lvert{X}\big\rvert}{2} + 1}
                                     }{ 2 }, & \text{if } & |X| \mod 2 != 0 \\
-                                  & x_{\frac{\big\lvert{X}\big\rvert}{2}}, & \text{else} &
+                                  & x_{\Bigg(\Bigg\lfloor\frac{\big\lvert{X}\big\rvert}{2}\Bigg\rfloor + 1\Bigg)}, & \text{else} &
                                 \end{aligned}, &&
   \textit{piecewise definition of median}\\
 (5) &&            &&      S' &:= \textit{Sorted}(S) \\
