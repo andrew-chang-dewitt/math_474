@@ -1,3 +1,8 @@
+---
+title: probability
+description: lecture notes introducing basic probability concepts & definitions
+---
+
 :::hgroup{.titlegroup}
 
 # probability

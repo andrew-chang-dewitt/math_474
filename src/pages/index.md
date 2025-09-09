@@ -1,9 +1,9 @@
 ---
-title: Example Index Page
-description: An index linking to a few other pages
+title: Math 474
+description: index/toc
 ---
 
-Here's some other pages:
+A few types of things:
 
-- [page/](./page/)
-- [page/nested/](./page/nested/)
+- [notes](/notes/)
+- [hw](/hw/)
