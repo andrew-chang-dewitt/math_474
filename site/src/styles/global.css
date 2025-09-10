@@ -32,16 +32,13 @@ html {
 }
 body {
   margin: 0 auto;
+  max-width: calc(100vw - 3rem);
 }
 
 :root {
   text-rendering: optimizeLegibility;
   color: var(--colors-dark);
   background-color: var(--colors-light);
-}
-
-article {
-  margin: 1rem;
 }
 
 article p {

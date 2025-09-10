@@ -13,9 +13,13 @@
 /* general code font styles */
 .katex-display,
 .katex .mathnormal,
-.katex {
+.katex,
+math {
+  font: var(--fonts-size-regular) var(--fonts-family-mono);
+  /*
   font-family: var(--fonts-family-mono);
   font-size: var(--fonts-size-regular);
+  */
 }
 
 /* Comments */
