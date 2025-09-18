@@ -5,6 +5,7 @@ description: homework assignments
 
 ## toc
 
-- [hw 1](./hw_1/)
-- [hw 2](./hw_2/)
-- [hw 3](./hw_3/)
+- [hw 1](./hw_01/)
+- [hw 2](./hw_02/)
+- [hw 3](./hw_03/)
+- [hw 4](./hw_04/)
