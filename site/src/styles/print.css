@@ -5,7 +5,7 @@
  */
 @media print {
   :root {
-    font-size: 11pt;
+    font-size: 10pt;
     background-color: white !important;
   }
 
