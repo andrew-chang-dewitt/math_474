@@ -1,5 +1,5 @@
 ---
-title: "Probability & Statistics: numerical summaries of data (Ch. 2.1)"
+title: "Probability & Statistics: numerical summaries of data (&sect; 2.1)"
 description: "Notes on exploratory data analysis, a set of techniques where statistic are use to help describe data in meaningful ways."
 keywords:
   - "descriptive statistics"
@@ -12,21 +12,20 @@ keywords:
 meta:
   byline: Andrew Chang-DeWitt
   published: "2026-01-14T12:00-06:00"
+  updated: "2026-01-21T11:25-06:00"
 ---
 
 _**def: descriptive statistics**_&mdash;organizing & summarizing data using numerical & graphical (visual) methods
 
-## &sect; 2.1: numerical summaries of data
-
-### sample mean, $\bar{x}$
+## sample mean, $\bar{x}$
 
 if we have a sample $S$ containing $n$ observations ( $S := \{x_1, x_2, ..., x_n\}$ ),
 the _**sample mean**_ is found as
 
 $$
-\begin{aligned}
-(2.1) && \bar{x} = \frac{1}{n} \sum^n_{i \coloneqq 1} x_i
-\end{aligned}
+\begin{align}
+\bar{x} = \frac{1}{n} \sum^n_{i \coloneqq 1} x_i
+\end{align}
 $$
 
 a physical example: a number representing the "balance point", e.g. if
@@ -34,7 +33,7 @@ each observation is a 1-pound mass at some position along a beam, then
 placing a fulcrum at $\bar{x}$ would balance the weights.
 assuming we have good sampling methods, we can use $\bar{x}$ as a reasonable approximation of the _**population mean**_.
 
-### sample variance, $s^2$, & standard deviation, $s$
+## sample variance, $s^2$, & standard deviation, $s$
 
 to tell how much our data changes across datapoints, we use notions of
 _**variance**_&mdash;the measure of variability, or _deviation from the
@@ -44,17 +43,17 @@ standard deviation\_.
 for `n` observations, $x_1, x_2, ..., x_n$, the _**sample variance**_ is found as
 
 $$
-\begin{aligned}
-(2.2) && s^2 = \frac{1}{n - 1} \sum^n_{i \coloneqq 1} (x_i - \bar{x})^2
-\end{aligned}
+\begin{align}
+s^2 = \frac{1}{n - 1} \sum^n_{i \coloneqq 1} (x_i - \bar{x})^2
+\end{align}
 $$
 
 the sample _**standard deviation**_ is simply $s$, e.g.
 
 $$
-\begin{aligned}
+\begin{align}
 s = \sqrt{s^2}
-\end{aligned}
+\end{align}
 $$
 
 alternatively, $s^2$ can be found by expanding the summation term, $(x_i - \bar{x})^2$ & substituting the definition of $\bar{x}$
@@ -83,6 +82,7 @@ $$
 \text{Var}(X) &= \mathbb{E}[(X - \mu)^2]
 \end{aligned}
 $$
+
 _sample variance_ is an estimate of _**population variance**_, $\sigma^2$. for a population consisting of $N$ equally likely outcomes
 
 $$
@@ -110,7 +110,36 @@ two explanations:
 2. the set of $n$ deviations, $x_1 - \bar{x}, x_2 - \bar{x}, ..., x_n - \bar{x}$
    aways sums to `0`. thus, there are only `n - 1` ways to separate them
 
-### sample range, $r$
+### example:
+
+given $x = \{ 12.6, 12.9, 13.4, 12.3, 13.6, 13.5, 12.6, 13.1 \}$, find $s^2$:
+
+using a table:
+
+| i         | $x_i$ | $x_i - \bar x$ | $(x_i - \bar x)^2$ |
+| --------- | ----- | -------------- | ------------------ |
+| 1         | 12.6  | -0.4           | 0.16               |
+| 2         | 12.9  | -0.1           | 0.01               |
+| 3         | 13.4  | 0.4            | 0.16               |
+| 4         | 12.3  | -0.7           | 0.49               |
+| 5         | 13.6  | 0.6            | 0.36               |
+| 6         | 13.5  | 0.5            | 0.25               |
+| 7         | 12.6  | -0.4           | 0.16               |
+| 8         | 13.1  | 0.1            | 0.01               |
+| **total** |       | **0**          | **1.6**            |
+
+or w/ the formula:
+
+$$
+\begin{aligned}
+s^2 &= \frac{1}{n - 1} \sum^n_{i \coloneqq 1} (x_i - \bar{x})^2 && \textit{\{2\}} \\
+    &= \frac{1}{8 - 1} \sum^8_{i \coloneqq 1} (x_i - \bar{x})^2 \\
+    &= \frac{1}{7} 1.6 \\
+s^2 &\approx 0.229 \space_\blacksquare
+\end{aligned}
+$$
+
+## sample range, $r$
 
 for $n$ observations in a sample $x_1, x_2, ..., x_n$, the _**sample
 range**_ is
@@ -121,7 +150,7 @@ r &= max(x_i) - min(x_i)
 \end{align}
 $$
 
-### sample median
+## sample median
 
 for sample $x_1, x_2, ..., x_n$, the _**sample median**_,or central
 value, is the point at which exactly half the data lies below it &
@@ -143,7 +172,7 @@ unlike $\bar{x}$, sample median isn't susceptible to bias introduced by
 outliers, making it often a better measure of the "typical" value in a
 sample.
 
-### sample mode
+## sample mode
 
 the most frequently occurring value is known as the _**sample mode**_.
 
@@ -151,4 +180,4 @@ the most frequently occurring value is known as the _**sample mode**_.
 >
 > there can be more than one mode! if there are two modes, the _distribution_ is known as _**bimodal**_.
 
-the sample mean, median, & mode are all measures of _central tendency_.
+the sample mean, median, & mode are all measures of _**central tendency**_.

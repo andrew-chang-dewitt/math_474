@@ -1,5 +1,5 @@
 ---
-title: "Probability & Statistics: Collecting Data & probability models (Ch.'s 1.2 & 1.4)"
+title: "Probability & Statistics: Collecting Data & probability models (&sect;'s 1.2 & 1.4)"
 description: "Notes from lecture over intro to data collection methods, hypothesis testing, & probability models."
 keywords:
   - "data collection"

@@ -1,5 +1,5 @@
 ---
-title: "Probability & Statistics: intro & Ch 1.1"
+title: "Probability & Statistics: intro & &sect; 1.1"
 description: "Intruductory lecture notes; administrivia along w/ foundational terms/concepts (e.g. variability, ...)."
 keywords:
   - "probability & statistics"
