@@ -108,7 +108,7 @@ for example, given data $\{30, 32, 34, 35, 37, 38, 39, 40, 42, 45, 120, 200\}$, 
 
 not v useful.
 
-to adjust, use narrower bins in highly populated region w/ wide bins for outliers, computing bin height as $\frac{frequency}{\text{bin width}}, which makes each region's _area_ (not height) proportional to the bin's frequency:
+to adjust, use narrower bins in highly populated region w/ wide bins for outliers, computing bin height as $\frac{frequency}{\text{bin width}}$, which makes each region's _area_ (not height) proportional to the bin's frequency:
 
 ```no-linenums
 1.0 -   +-+
