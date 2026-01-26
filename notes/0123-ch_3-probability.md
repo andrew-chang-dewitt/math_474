@@ -1,6 +1,6 @@
 ---
 title: "Probability & Statistics: sample spaces & events (&sect; 3.1)"
-description: "using distributions to understand & visualize datasets; helping to model a population"
+description: "Introduction to probability core concepts&mdash;sample spaces & events."
 keywords:
   - "events"
   - "sample spaces"
