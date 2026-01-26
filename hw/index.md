@@ -1,0 +1,9 @@
+---
+title: hw
+description: homework assignments
+---
+
+## toc
+
+- [hw 1](./hw_01/)
+- [hw 2](./hw_02/)
