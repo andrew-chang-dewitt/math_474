@@ -125,6 +125,97 @@ these axioms begat some important consequences:
 
 ## &sect; 3.4: unions of events & addition rules
 
-> [!TODO]
->
-> finish this section!
+as seen above in axiom 3, calculating the probability of the union of
+disjoint events is possible, given the probabilities of each of the
+events in the union. however, what if the events are _not_ disjoint?
+consider the following table relating the contamination level in a
+silicon wafer with the sample location:
+
+| contamination | center | edge | **total** |
+| ------------- | ------ | ---- | --------- |
+| low           | 514    | 68   | 582       |
+| high          | 112    | 246  | 358       |
+| **total**     | 626    | 314  | 940       |
+
+we can reason about the experiment of choosing 1 wafer produced in the
+same way at random in terms of the events $H$, that the contamination
+is high, & $C$, that the wafer is at the center:
+
+$$
+\begin{aligned}
+  S &\coloneqq \text{ set of possible outcomes} && \textit{(total,total) in the table above} \\
+|S| &= 940 \\
+|H| &= 358 \\
+|C| &= 626 \\
+\\
+\end{aligned}
+$$
+
+we can now reason about the probabilities of those events,
+
+$$
+\begin{aligned}
+\mathbb{P}(H) &= \frac{|H|}{|S|} = \frac{358}{940} \\
+\mathbb{P}(C) &= \frac{|C|}{|S|} = \frac{626}{940} \\
+\end{aligned}
+$$
+
+as well as their intersections (as simple table lookups),
+
+$$
+\begin{aligned}
+\mathbb{P}(H \cap C) &= \frac{|H \cap C|}{|S|} = \frac{112}{940} && \textit{(center,high) in table above} \\
+\end{aligned}
+$$
+
+& unions, which can be thought of as the union of each cell comprising the entire union,
+
+$$
+\begin{aligned}
+            H \cup C &= (H \cap C) \cup (H \cap C') \cup (H' \cap C) \\
+\mathbb{P}(H \cup C) &= \frac{112}{940} + \frac{514}{940} + \frac{246}{940} \\
+                     &= \frac{872}{940} \\
+\end{aligned}
+$$
+
+or as the union of each entire event, minus their intersection:
+
+$$
+\begin{aligned}
+\mathbb{P}(H \cup C) &= P(H) + P(C) - P(H \cap C) \\
+                     &= \frac{626}{940} + \frac{358}{940} - \frac{112}{940} \\
+                     &= \frac{872}{940}
+\end{aligned}
+$$
+
+this generalizes to the following rule for two _dependent_ (i.e. not disjoint) events:
+
+$$
+\begin{align}
+\mathbb{P}(A \cup B) &= \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B), \text{ where} \\
+            &\space A \land B \text{ are events in the same space} \notag \\
+\end{align}
+$$
+
+which can be further generalized for three events as:
+
+$$
+\begin{align}
+\mathbb{P}(A \cup B \cup C) &= \mathbb{P}[(A \cup B) \cup C] \notag \\
+                   &= \mathbb{P}(A \cup B) + \mathbb{P}(C) - \mathbb{P}[(A \cup B) \cap C] \notag \\
+                   &= \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B) && \textit{by [4]} \notag \\
+                   &\quad - \mathbb{P}[(A \cap C) \cup (B \cap C)] && \textit{by distributive law} \notag \\
+                   &= \mathbb{P}(A) + \mathbb{P} (B) - \mathbb{P}(A \cap B) \notag \\
+                   &\quad \mathbb{P}(A \cap C) + \mathbb{P}(B \cap C) - \mathbb{P}(A \cap B \cap C) && \textit{by [4]} \space_\blacksquare \\
+\end{align}
+$$
+
+also built off of the third axiom (&sect; 3.3 (3), above) is the rule
+for many, $k$, mutually exclusive (e.g. disjoint) events
+, $E_1, E_2, ..., E_k$:
+
+$$
+\begin{align}
+\mathbb{P}(\bigcup^k_{i\coloneqq1} E_i) = \sum^k_{i\coloneqq1} \mathbb{P}(E_i)
+\end{align}
+$$
