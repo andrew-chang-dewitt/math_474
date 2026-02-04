@@ -188,7 +188,7 @@ $$
 \end{aligned}
 $$
 
-this generalizes to the following rule for two _dependent_ (i.e. not disjoint) events:
+this generalizes to the following rule for two events:
 
 $$
 \begin{align}

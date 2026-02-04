@@ -11,3 +11,4 @@ description: notes from lectures & readings
 - [lec 3a&mdash;&sect; 2.3: frequency distributions & histograms](./0121-ch_2_3_frequency_distributions_histograms/)
 - [lec 4&mdash;&sect; 3.1: probability: sample spaces & events](./0123-ch_3-probability/)
 - [lec 5&mdash;&sect; 3.2: probability: counting](./0126-ch_3.2-counting/)
+- [lec 6&mdash;&sect; 3.3 & 3.4: axioms of probability & unions/sums of events](./0128-ch_3_3_to_4-axioms_prop_unions_additions/)
