@@ -12,3 +12,4 @@ description: notes from lectures & readings
 - [lec 4&mdash;&sect; 3.1: probability: sample spaces & events](./0123-ch_3-probability/)
 - [lec 5&mdash;&sect; 3.2: probability: counting](./0126-ch_3.2-counting/)
 - [lec 6&mdash;&sect; 3.3 & 3.4: axioms of probability & unions/sums of events](./0128-ch_3_3_to_4-axioms_prop_unions_additions/)
+- [lec 10&mdash;&sect; 4.2, 4.3, & 4.5: cdfs, mean/var of rvs, & binomial distributions](./0216-ch_4_2_4_3_4_5-cdf_mean_var_rv_and_binomial/)
