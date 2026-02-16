@@ -1,4 +1,5 @@
 import { resolve } from "path"
+import postcssEnvFunction from "postcss-env-function"
 import type { UserConfig } from "vite"
 
 import staticMd from "vite-plugin-static-md"
@@ -13,6 +14,13 @@ const ssg = staticMd({
   renderFn,
 })
 
+const cssEnvVars = {
+  environmentVariables: {
+    "--layout-screen-small": "44rem",
+    "--layout-screen-medium": "60rem",
+  },
+}
+
 export default {
   appType: "mpa",
   build: {
@@ -21,6 +29,16 @@ export default {
       input: {
         404: resolve(HTML_ROOT, "404.html"),
       },
+    },
+  },
+  css: {
+    postcss: {
+      map: true,
+      plugins: [
+        postcssEnvFunction({
+          importFrom: [cssEnvVars],
+        }),
+      ],
     },
   },
   plugins: [ssg],
