@@ -22,7 +22,8 @@ meta:
 
 ## &sect; 4.5: binomial distribution
 
-many RVs can be thought of as a set of repeated, independent trials, each /w two outcomes (typ. labeled "success" & "failure").
+many RVs can be thought of as a set of repeated, independent trials, each /w
+two outcomes (typ. labeled "success" & "failure").
 
 > [!ASIDE]
 >
@@ -43,7 +44,11 @@ the pmf of a binomial distribution can always be calculated as:
 
 $$
 \begin{aligned}
-f(x) = \mathbb{P}(X = x) = \begin{pmatrix} n \\ x \end{pmatrix} p^x (1 - p)^{n - x}, x = 0, 1, ..., n
+f(x) = \mathbb{P}(X = x) = \begin{pmatrix}
+                             n \\
+                             x
+                           \end{pmatrix}
+                           p^x (1 - p)^{n - x}, x = 0, 1, ..., n
 \tag{4.5.1}
 \end{aligned}
 $$
@@ -52,7 +57,11 @@ as you might expect, if we sum a pmf $f(x)$ for all $x$ in $X$ we always get 1:
 
 $$
 \begin{aligned}
-\sum_{x=0}^n f(x) &= \sum_{x=0}^n \begin{pmatrix} n \\ x \end{pmatrix} p^x (1 - p)^{n - x} \\
+\sum_{x=0}^n f(x) &= \sum_{x=0}^n \begin{pmatrix}
+                                    n \\
+                                    x
+                                  \end{pmatrix}
+                                  p^x (1 - p)^{n - x} \\
                   &= (p + (1 - p))^n \\
                   &= 1^n \\
                   &= 1 \space_\blacksquare \\
@@ -68,7 +77,8 @@ $$
 > <details>
 >   <summary>
 >
-> Each water sample has 10% chance of being polluted. Assume that sampels are independent. Find prob that in the next 18 samples, exactly 2 are polluted:
+> Each water sample has 10% chance of being polluted. Assume that sampels are
+> independent. Find prob that in the next 18 samples, exactly 2 are polluted:
 >
 >   </summary>
 >
@@ -87,6 +97,8 @@ $$
 > $$
 >
 > </details>
+
+### mean & variance
 
 because the pmf is always fitting a formula (4.5.1), some measures of a
 binomial distribution can always be found by the same formulas as well:
@@ -153,4 +165,95 @@ binomial distribution can always be found by the same formulas as well:
 
 ## &sect; 4.7: hypergeometric distribution
 
-> [!TODO]
+starting w/ an example:
+
+> consider 850 manufactured parts, 50 of which are nonconforming.
+>
+> - two parts are selected at random,
+> - let $X$ be the rv reprsenting num of nonconforming parts in the sample
+
+when sampling w/ replacement, $X$ is the binomial
+distribution $Bin(850, \frac{50}{850})$.
+
+if sampling **w/out** replacement, however, the conditional probability
+must be considered:
+
+$$
+\begin{aligned}
+         A      &\coloneqq \text{first part nonconforming} \\
+         B      &\coloneqq \text{second part nonconforming} \\
+\mathbb{P}(A)   &= \frac{50}{850} \\
+\mathbb{P}(B|A) &= \frac{49}{849} \\
+\mathbb{P}(A|B) &= P(B|A) &&
+  \htmlClass{hljs-comment}{\textit{by Bayes' theorem}}
+\end{aligned}
+$$
+
+this shows the trials are neither independent or identical (unlike in binomial
+distributions). we can still find the probability of each $x \in X$:
+
+$$
+\begin{aligned}
+\mathbb{P}(X = 0) &= \frac{\text{num conforming}}{\text{total}} \cdot \frac{\text{num conforming} - 1}{\text{total} - 1} &&
+  \htmlClass{hljs-comment}{\textit{prob A'B'}} \\
+                  &= \frac{800}{850} \cdot \frac{799}{849} \\
+                  &= 0.886 \\
+\mathbb{P}(X = 1) &= \frac{800}{850} \cdot \frac{50}{849} + \frac{50}{850} \cdot \frac{800}{849} &&
+  \htmlClass{hljs-comment}{\textit{prob A'B + prob AB'}} \\
+                  &= 0.111 \\
+\mathbb{P}(X = 2) &= \frac{50}{850} \cdot \frac{49}{849} &&
+  \htmlClass{hljs-comment}{\textit{prob AB}} \\
+                  &= 0.003 \\
+\end{aligned}
+$$
+
+or as a pmf:
+
+$$
+\begin{aligned}
+f(x) = \begin{cases}
+         0.886, &x = 0, \\
+         0.111, &x = 1, \& \\
+         0.003, &x = 2
+       \end{cases}
+\end{aligned}
+$$
+
+generalizing this pattern to any set of $N$ objects where $K$ are some sort of "success" & $N - K$ are "failure" (given $1 \le K \le N$ ), when selecting a sample of $n$ (given $n \le N$ ) objects, the rv $X$ of success in sample is a _**hypergeometric**_ rv with a pmf of:
+
+$$
+\begin{aligned}
+f(x) &= \frac{\begin{pmatrix}
+                K \\
+                x
+              \end{pmatrix}
+              \cdot
+              \begin{pmatrix}
+                N - K \\
+                n - x
+              \end{pmatrix}}{\begin{pmatrix}
+                N \\
+                n
+              \end{pmatrix}
+              }, \space\text{where} \\
+     &\quad x \in [x_{min},x_{max}] \\
+     &\quad x_{min} = \text{max}\{0, n + K - N\} &&
+  \htmlClass{hljs-comment}{\textit{// min \# failures can be no more than $N - K$}} \\
+     &\quad x_{max} = \text{min}\{K,n\} &&
+  \htmlClass{hljs-comment}{\textit{// max \# success can be no more than $K$ or $n$}} \\
+\end{aligned}
+$$
+
+### mean & variance
+
+given hypergeometric rv $X$ w/ params $N,K,n$:
+
+$$
+\begin{aligned}
+     \mu &= \mathbb{E}[X] = np, \text{\&}                          &&
+  \htmlClass{hljs-comment}{\textit{hypergeometric dist. mean}}     \\
+\sigma^2 &= Var(X) = np(1 - p)(\frac{N - n}{N - 1}), \text{ where} &&
+  \htmlClass{hljs-comment}{\textit{hypergeometric dist. variance}} \\
+       p &= \frac{K}{N}                                            \\
+\end{aligned}
+$$
