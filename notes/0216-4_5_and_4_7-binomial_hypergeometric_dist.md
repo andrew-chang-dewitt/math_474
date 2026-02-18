@@ -30,7 +30,16 @@ many RVs can be thought of as a set of repeated, independent trials, each /w two
 
 :::
 
-for a random experiment consisting of $n$ repetitions s.t. each trial is independent & has only 2 outcomes (success, failure) & probability of success (denoted as little p&mdash; $p$ ) in each trial remains constant, where we call the RV repr the # of trials resulting in success $X$, we can find the pmf as follows:
+given a random experiment consisting of $n$ repetitions & an RV, $X$,
+representing the # of trials resulting in success, it fits a _**binomial
+distribution**_ if the following are true:
+
+1. each trial is independent
+2. each trial has only 2 outcomes (success, failure)
+3. probability of success (denoted as little p&mdash; $p$ ) in each trial
+   remains constant
+
+the pmf of a binomial distribution can always be calculated as:
 
 $$
 \begin{aligned}
@@ -68,7 +77,7 @@ $$
 > X &\coloneqq \text{num. samples polluted in next 18} \\
 > \\
 > \mathbb(X = 2) &= \begin{pmatrix} 18 \\ 2 \end{pmatrix} 0.1^2 (0.9)^{18 - 2} &&
->   \htmlClass{hljs-comment}{\textit{by 4.5.1}} \\
+>   \htmlClass{hljs-comment}{\textit{// by 4.5.1}} \\
 >                &= \frac{18!}{2! (18 - 2)!} 0.1^2 (0.9)^{18 - 2} \\
 >                &= \frac{18!}{2! (16)!} 0.1^2 (0.9)^{16} \\
 >                &= \frac{18 \cdot 17}{2 \cdot 1} 0.1^2 (0.9)^{16} \\
@@ -79,7 +88,68 @@ $$
 >
 > </details>
 
-> [!TODO]
+because the pmf is always fitting a formula (4.5.1), some measures of a
+binomial distribution can always be found by the same formulas as well:
+
+- _**mean**_
+
+  $$
+  \begin{aligned}
+  \mu &= \mathbb{E}[X] = np, \;\text{where} \\
+      &\quad n \text{ is the number of trials, \&} \\
+      &\quad p \text{ is the probability of success} \tag{4.5.2}
+  \end{aligned}
+  $$
+
+  proof: because a "binomial rv is the _sum of independent Bernoulli rvs_"
+
+  $$
+  \begin{alignat}{4}
+  &\quad\quad\;\;\,     X_i &\coloneqq&\, \begin{cases}
+                                         1, &\text{if } i^{\text{th}} \text{ trial is successful}, \\
+                                         0, &\text{otherwise}
+                                       \end{cases} \tag{4.5.3} \\
+  &                         &         &\quad\quad \text{for}\space i = 1, 2, ..., n &&\quad
+    \htmlClass{hljs-comment}{\textit{// $X_i$ as a Bernoulli rv}} \tag{4.5.4} \\
+  &\implies               X &\coloneqq&\, \sum_{i=1}^n X_i &&\quad
+    \htmlClass{hljs-comment}{\textit{// $X$ as a sum of Bernoulli rv; i.e. a binomial rv}} \notag \\
+  &\implies \mathbb{E}[X_i] &=&\, 1 \cdot p + 0(1 - p) = p &&\quad
+    \htmlClass{hljs-comment}{\textit{// the expectation of a Bernoulli rv is just $p$}} \notag \\
+  &\implies \mathbb{E}[X]   &=&\, \mathbb{E}\bigg[ \sum_{i=1}^n X_i \bigg] &&\quad
+    \htmlClass{hljs-comment}{\textit{// an expectation of a sum of rvs...}} \notag \\
+  &                         &=&\, \sum_{i=1}^n \mathbb{E}[X_i] &&\quad
+    \htmlClass{hljs-comment}{\textit{// ...is equiv. the sum of expectations of rvs}} \notag \\
+  &                         &=&\, np \space_\blacksquare \notag
+  \end{alignat}
+  $$
+
+- _**variance**_
+
+  $$
+  \begin{aligned}
+  \sigma^2 &= \mathbb{E}[(X - \mu)^2] = np(1 - p), \;\text{where} \\
+           &\quad n \text{ is the number of trials, \&} \\
+           &\quad p \text{ is the probability of success} \tag{4.5.5}
+  \end{aligned}
+  $$
+
+  proof: similar to that of the mean
+
+  $$
+  \begin{alignat}{5}
+  &\quad\quad\;\;\, (4.5.3) &\land& (4.5.4) \\
+  &\implies Var(X_i) &=&\, \mathbb{E}\bigg[ (X_i - p)^2 \bigg] = p(1 - p) &&\quad
+    \htmlClass{hljs-comment}{\textit{// the variance of a Bernoulli rv is multiple of both probabilities}} \notag \\
+  &\implies Var(X)   &=&\, Var\bigg( \sum_{i=1}^n X_i \bigg) &&\quad
+    \htmlClass{hljs-comment}{\textit{// the variance of a sum of rvs...}} \notag \\
+  &                  &=&\, \sum_{i=1}^n Var(X_i) &&\quad
+    \htmlClass{hljs-comment}{\textit{// ...is equiv. the sum of variances of rvs}} \notag \\
+  &                  &=&\, np(1 - p) \space_\blacksquare \notag
+  \end{alignat}
+  $$
+
+
+
 
 ## &sect; 4.7: hypergeometric distribution
 
