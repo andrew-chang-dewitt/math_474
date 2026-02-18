@@ -120,12 +120,26 @@ for a function $f: X \mapsto \real$, it can be considered to be a
 probability mass function if the following criteria are satisified for all $x \in X$:
 
 1. $f(x) \ge 0$, from second axiom (see lecture notes on [axioms of probability](../0128-ch_3_3_to_4-axioms_prop_unions_additions/)),
-2. $\sum_{x \in X} f(x) = 1$, from first axiom, and
+2. $\sum_{x \in X} f(x) = 1$, from first axiom (&sect; 3.3), and
 3. $f(x) = \mathbb{P}(X = x)$, i.e. $f$ gives the probability at each possible value of the RV $X$
 
 ## &sect; 4.2: cumulative distributive functions
 
-> [!TODO]
+similar to the pmf, the _**cumulative distibution function (cdf)**_ is also used to describe the probability distribution of a random variable. defined as a function $F: R \mapsto [0,1]$:
+
+$$
+\begin{aligned}
+F(x) =\mathbb{P}(X \le x) &= \mathbb{P}(\bigcup_{i: x_i \le x} \{X = x_i\}) \\
+                          &= \sum_{i: x_i \le x} \mathbb{P}(X = x_i) \\
+                          &= \sum_{i: x_i \le x} f(x_i) \tag{4.2.1}
+\end{aligned}
+$$
+
+properties of cdf for any discrete rv, $X$:
+
+1. $F(x) = \mathbb{P}(X \le x) = \sum_{x_i \le x} f(x_i)$, from def (4.2.1),
+2. $0 \le F(x) \le 1$, from the second axiom (&sect; 3.3), and
+3. $F$ is _nondecreasing_; i.e. $x \le y \longrightarrow F(x) \le F(y)$
 
 ## &sect; 4.3: expected random value & variance
 
