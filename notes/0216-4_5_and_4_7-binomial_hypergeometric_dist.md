@@ -77,7 +77,7 @@ $$
 > <details>
 >   <summary>
 >
-> Each water sample has 10% chance of being polluted. Assume that sampels are
+> Each water sample has 10% chance of being polluted. Assume that samples are
 > independent. Find prob that in the next 18 samples, exactly 2 are polluted:
 >
 >   </summary>
@@ -159,9 +159,6 @@ binomial distribution can always be found by the same formulas as well:
   &                  &=&\, np(1 - p) \space_\blacksquare \notag
   \end{alignat}
   $$
-
-
-
 
 ## &sect; 4.7: hypergeometric distribution
 
