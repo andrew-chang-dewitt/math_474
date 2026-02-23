@@ -1,9 +1,10 @@
 ---
-title: "Probability & Statistics: some probability distributions (&sect;'s 4.5, & 4.7)"
-description: "Coverage of the binomial & hypergeometric distributuions."
+title: "Probability & Statistics: some probability distributions (&sect;'s 4.5, 4.7, & 4.8)"
+description: "Coverage of the binomial, hypergeometric, & poisson probability distributuions."
 keywords:
-  - "hypergeometric distribution"
   - "binomial distribution"
+  - "hypergeometric distribution"
+  - "poisson distribution"
   - "probability distribution"
   - "probability & statistics"
   - "lecture notes"
@@ -13,12 +14,14 @@ keywords:
 meta:
   byline: Andrew Chang-DeWitt
   published: "2026-02-16T11:25-06:00"
+  updated: "2026-02-18T11:25-06:00"
 ---
 
 ## agenda
 
 - &sect; 4.5: binomial distribution
 - &sect; 4.7: hypergeometric distribution
+- &sect; 4.8: poisson distribution
 
 ## &sect; 4.5: binomial distribution
 
@@ -254,3 +257,73 @@ $$
        p &= \frac{K}{N}                                            \\
 \end{aligned}
 $$
+
+## &sect; 4.8: poisson distribution
+
+starting w/ an example:
+
+consider a length $T_\text{mm}$ of copper wire. flaws occur at random in the wire (let $d$ be the average number of flaws per mm).
+
+```
+X := num flaws on wire   \\ RV
+
+we expect by scaling that E[X] = lmda T
+```
+
+to derive pmf of $X$, partition into $n$ intervals of $\delta t = \frac{T}{n}$ length.
+
+it can be observed that when $n$ is large, prob of more than 1 flaw on an interval is negligible (num. of flaw in each interval is approx to a Bernoulli RV). this leads us to the assumption that the occurence of a flaw in an interval is independent of other intervals (Bernoulli RVs are independent). thus, assuming we have infinite intervals ( $n = \infin$ ), the probability of RV $X$ can be found as:
+
+```
+X ~= sum of n independent Bernoulli trials \\ binomial dist
+E[X] = lmda T = np => p = (lmda T)/n \tag{4.8.1}
+```
+
+from here, we can find $P(X = x)$:
+
+```
+P(X = x) ~= bin(n, x)           p^x               (1 - p)^(n - x)
+          = bin(n, x)           ((lmda T)/n)^x    (1 - (lmda T)/n)^(n - x)
+          = (n! / (n - x!)(x!)) (lmda T)^x/n^x    (1 - (lmda T)/n)^n (1 - (lmda T)/n)^(-x)
+          = ((lmda T)^x / x!) (n! / n^x (n - x)!) (1 - (lmda T)/n)^n (1 - (lmda T)/n)^(-x)
+
+  lim n->\infin (n! / n^x (n - x)!)
+= lim n->\infin (n(n - 1)(n - 2)...(n - x + 1))/n^x
+= lim n->\infin n/n (n-1)/n (n-2)/n ... (n-x+1)/n
+= lim n->\infin 1 (1 - 1/n) (1 - 2/n) ... (1 - (x-1)/n)
+= 1
+
+  lim n->\infin (1 - (lmda T)/n)^n
+= e^(-lmda T)
+
+  lim n->\infin (1 - (lmda T)/n)^(-x)
+= 1
+
+lim n->\infin P(X=x) = e^(-lmda T) ((lmda T)^x / x!), x=0,1,2,...
+
+f(x) = e^(-lmda T) ((lmda T)^x / x!), lmda > 0, x=0,1,2,...\space_\blacksquare \\ pmf \tag{4.8.2}
+```
+
+> [!ASIDE]
+>
+> ### an example
+>
+> <details>
+>
+>   <summary>
+>
+> suppose we have a copper wire w/ 2.3 flaws per mm. determine prob of 10
+> flaws in 5mm of wire.
+>
+>   </summary>
+>   
+> $$
+> \begin{aligned}
+> X &\coloneqq \text{num flaws in 5mm} && \htmlClass{hljs-comment}{\textit{// poisson}} \\
+>  \lambda T &= 2.3 \;\text{flaws/mm}\; \cdot 5 \text{mm} = 11.5 \;\text{flaws} \\
+> \\
+> \mathbb{P}(X = 10) &= e^{-11.5} \frac{11.5^10}{10!} = 0.113 \space_\blacksquare
+> \end{aligned}
+> $$
+>
+> </details>
