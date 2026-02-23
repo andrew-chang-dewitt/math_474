@@ -15,5 +15,6 @@ description: notes from lectures & readings
 - [&sect; 3.5 & 3.6: conditional probability, intersections, & total probability](./0202-ch_3_5_to_3_6-cond_prob_intersections_multipl_total_prob/)
 - [&sect; 3.7: independence](./0204-ch_3_7-independence/)
 - [&sect; 3.8: Bayes' theorem](./0209-ch_3_8-bayes_theorem/)
-- [&sect; 3.9, 4.1, & 4.2: random variables, probability mass function, & cumulative distribution function](./0209_0211-ch_3_9_and_4_1_to_4_3-rand_vars_pmf_cdf_mean_var/)
-- [&sect; 4.3, & 4.5: some probability distributions (binomial & hypergeometric)](./0216-4_5_and_4_7-binomial_hypergeometric_dist/)
+- [&sect; 3.9, 4.1, & 4.2: random variables, probability mass function, cumulative distribution function, & mean/var of rvs](./0209_0211-ch_3_9_and_4_1_to_4_3-rand_vars_pmf_cdf_mean_var/)
+- [&sect; 4.3, & 4.5: some probability distributions (binomial, hypergeometric, & poisson)](./0216-4_5_and_4_7-binomial_hypergeometric_dist/)
+- [&sect; 5.1 to 5.3: prob. dist & pdf of cumulative rvs](./0223-5_1_to_5_3-cont_rv_pdf_dist/)
