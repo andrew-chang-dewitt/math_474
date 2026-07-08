@@ -3,3 +3,4 @@ dist/
 .*.swp
 .*.swo
 win_files
+ignore/
