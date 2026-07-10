@@ -1,3 +1,34 @@
+## &sect; 3.1 concept of a random variable
+
+### definition 3.1, random variable
+
+> [!IMPORTANT]
+>
+> A **random variable** is a function that associates a real number with
+> each element in the sample space.
+
+### definition 3.2, discrete sample space
+
+> [!IMPORTANT]
+>
+> If a sample space contains a finite number of possibilities or an
+> unending sequence with as many elements as there are whole numbers,
+> it is called a **discrete sample space**.
+
+### definition 3.3, continuous sample space
+
+> [!IMPORTANT]
+>
+> If a sample space contains an infinite number of possibilities equal
+> to the number of points on a line segment, it is called a
+> **continuous sample space**.
+>
+> A random variable is a **discrete random variable** if its set of
+> possible outcomes is countable, & a **continuous random variable** if
+> it can take on values on a continuous scale (an entire interval of
+> numbers). Discrete random variables typically represent count data;
+> continuous random variables typically represent measured data.
+
 ## &sect; 3.2 discrete probability distributions
 
 ### definition 3.4, discrete probability mass function requirements:
@@ -121,3 +152,20 @@
 > $$
 >
 > for all $(x,y)$ within their range.
+
+### definition 3.13, mutual statistical independence
+
+> [!IMPORTANT]
+>
+> Generalizes definition 3.12, above, to `n` random variables.
+> Let `X_1, X_2, ..., X_n` be `n` random variables (discrete or
+> continuous) with joint distribution $f(x_1, x_2, \ldots, x_n)$ &
+> marginal distributions $f_1(x_1), f_2(x_2), \ldots, f_n(x_n)$,
+> respectively. The random variables `X_1, X_2, ..., X_n` are said to be
+> **mutually statistically independent** if & only if
+>
+> $$
+> f(x_1, x_2, \ldots, x_n) = f_1(x_1) f_2(x_2) \cdots f_n(x_n)
+> $$
+>
+> for all $(x_1, x_2, \ldots, x_n)$ within their range.
