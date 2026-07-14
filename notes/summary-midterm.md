@@ -24,7 +24,7 @@
 - **probability of event A**: sum of weights of sample points in `A`; $0 \le P(A) \le 1$, $P(\phi)=0$, $P(S)=1$, additive over mutually exclusive events
 - **equally likely outcomes**: $P(A) = n/N$
 - **additive rule (2 events)**: $P(A\cup B) = P(A)+P(B)-P(A\cap B)$
-  - mutually exclusive: $P(A\cup B)=P(A)+P(B)$, extends to `n` mutually exclusive events; if $A_1,\ldots,A_n$ partition `S`, sums to 1
+- **additive rule, mutually exclusive**: $P(A\cup B)=P(A)+P(B)$, extends to `n` mutually exclusive events; if $A_1,\ldots,A_n$ partition `S`, sums to 1
 - **additive rule (3 events)**: $P(A\cup B\cup C) = P(A)+P(B)+P(C) - P(A\cap B)-P(A\cap C)-P(B\cap C) + P(A\cap B\cap C)$
 - **complementary events**: $P(A)+P(A')=1$
 - **conditional probability** $P(B|A) = P(A\cap B)/P(A)$, for $P(A)>0$
@@ -33,11 +33,8 @@
 - **special product rule (independent)**: $P(A\cap B) = P(A)P(B)$
 - **multiplicative rule, k events**: $P(A_1\cap\cdots\cap A_k) = P(A_1)P(A_2|A_1)\cdots P(A_k|A_1\cap\cdots\cap A_{k-1})$, if independent, $= P(A_1)\cdots P(A_k)$
 - **mutual independence**: every subset $A_{i_1},\ldots,A_{i_k}$ satisfies $P(A_{i_1}\cap\cdots\cap A_{i_k}) = P(A_{i_1})\cdots P(A_{i_k})$, pairwise independence alone insufficient
-
-### approaches: cards, dice, & urns
-
-- **card problems**: count via combinations. Pick `r` from a suit/rank group with $\binom{k}{r}$, multiply the counts of independent groups together (multiplication rule, e.g. 2 aces & 3 jacks: $\binom{4}{2}\binom{4}{3}$), then divide by the total ways to draw the hand, $\binom{N}{n}$ (e.g. $\binom{52}{5}$ for a 5-card hand). For cards drawn **in succession without replacement**, chain conditional probabilities instead (product rule/theorem 2.10 & 2.12) &mdash; each successive draw's denominator shrinks by 1 (e.g. $P(A_1)=\frac{2}{52}$, $P(A_2|A_1)=\frac{8}{51}$, ...).
-- **dice problems**: each die is an independent trial &mdash; use the multiplication rule for sample space size ($6^k$ for `k` dice), then either enumerate favorable outcomes directly or multiply per-die probabilities together (independence). Joint outcomes across dice (e.g. sum, or one die's value vs. another's) are handled as a joint pmf over the pair (ch 3).
+- **card problems**: count via combinations. Pick `r` from a suit/rank group with $\binom{k}{r}$, multiply the counts of independent groups together via the multiplication rule &mdash; e.g. 2 aces & 3 jacks is $\binom{4}{2}\binom{4}{3}$ &mdash; then divide by the total ways to draw the hand, $\binom{N}{n}$, e.g. $\binom{52}{5}$ for a 5-card hand. For cards drawn **in succession without replacement**, chain conditional probabilities instead (product rule/theorem 2.10 & 2.12) &mdash; each successive draw's denominator shrinks by 1, e.g. $P(A_1)=\frac{2}{52}$, $P(A_2|A_1)=\frac{8}{51}$, and so on.
+- **dice problems**: each die is an independent trial &mdash; use the multiplication rule for sample space size ( $6^k$ for `k` dice), then either enumerate favorable outcomes directly or multiply per-die probabilities together (independence). Joint outcomes across dice (e.g. sum, or one die's value vs. another's) are handled as a joint pmf over the pair (ch 3).
 - **urn problems**: sampling **without replacement** &mdash; count via combinations, $\frac{\binom{k}{x}\binom{N-k}{n-x}}{\binom{N}{n}}$, i.e. the hypergeometric distribution (ch 5). Sampling **with replacement** &mdash; draws are independent trials with a fixed probability each time, i.e. the binomial distribution (ch 5).
 
 ## ch 3 &mdash; random variables & distributions
