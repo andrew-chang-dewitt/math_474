@@ -41,6 +41,16 @@ Homework files that render their own `# Title` heading use `meta: skipRenderTitl
 
 **Math** — KaTeX. Inline: `$...$`. Display: `$$...$$`. Use `\begin{align*}` for multi-line solutions. The `\space_\blacksquare` pattern marks end-of-solution (QED-style). Cross-references use `\tag{n.m}` and `\htmlClass{hljs-comment}{\textit{\{n.m\}}}` to cite earlier results.
 
+**Inline `$...$` delimiter rules** — the renderer (`marked-katex-extension`) uses this regex, which silently fails to render (leaves raw `$...$` text on the page) if violated:
+```js
+/^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1(?=[\s?!\.,:？！。，：]|$)/
+```
+- Char immediately **before** opening `$` must be whitespace or start-of-line — never a letter, digit, `(`, `"`, etc.
+- Char immediately **after** closing `$` must be whitespace, one of `. , : ? !`, or end-of-line — **never** `;`, `)`, `]`, `-`, a letter/digit, or other punctuation.
+- Semicolons are the most common trap: `$x$;` breaks. Use a comma or restructure instead: `$x$,` or rephrase to drop the semicolon.
+- Closing parens are the other trap: `($x$)` breaks. Add a space before the `)`: `($x$ )`, or move the paren outside differently.
+- Display math (`$$...$$`) is not affected by this rule.
+
 **Notes filenames** follow `MMDD-topic_slug.md` (e.g. `0128-ch_3_3_to_4-axioms_prop_unions_additions.md`).
 
 **Hw filenames** follow `hw-NN.md` for current semester; old semesters used `hw_NN.md`.
