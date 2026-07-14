@@ -13,8 +13,8 @@
 > b(x; n, p) = \binom{n}{x} p^x q^{n-x}, \quad x = 0, 1, 2, \ldots, n.
 > $$
 >
-> Binomial sums $B(r; n, p) = \sum_{x=0}^r b(x; n, p)$ are tabulated for
-> computing $P(X < r)$ or $P(a \leq X \leq b)$.
+> Binomial sums $B(r; n, p) = \sum_{x=0}^r b(x; n, p)$ are tabulated
+> for computing $P(X < r)$ or $P(a \leq X \leq b)$.
 
 ### theorem 5.1, mean & variance of the binomial distribution
 
@@ -51,70 +51,60 @@
 
 ### hypergeometric distribution
 
-> [!IMPORTANT]
->
-> A **hypergeometric experiment** requires (1) a random sample of size
-> `n` selected *without replacement* from `N` items, & (2) `k` of the
-> `N` items classified as successes, `N - k` as failures. The
-> probability distribution of the **hypergeometric random variable**
-> `X`, the number of successes, is
->
-> $$
-> h(x; N, n, k) = \frac{\binom{k}{x}\binom{N-k}{n-x}}{\binom{N}{n}}, \quad \max\{0, n-(N-k)\} \leq x \leq \min\{n, k\}.
-> $$
+A **hypergeometric experiment** requires (1) a random sample of size
+`n` selected _without replacement_ from `N` items, & (2) `k` of the
+`N` items classified as successes, `N - k` as failures. The
+probability distribution of the **hypergeometric random variable**
+`X`, the number of successes, is
+
+$$
+h(x; N, n, k) = \frac{\binom{k}{x}\binom{N-k}{n-x}}{\binom{N}{n}}, \quad \max\{0, n-(N-k)\} \leq x \leq \min\{n, k\}.
+$$
 
 ### theorem 5.2, mean & variance of the hypergeometric distribution
 
-> [!IMPORTANT]
->
-> The mean and variance of the hypergeometric distribution
-> $h(x; N, n, k)$ are
->
-> $$
-> \mu = \frac{nk}{N} \quad \text{and} \quad \sigma^2 = \frac{N-n}{N-1} \cdot n \cdot \frac{k}{N} \left(1 - \frac{k}{N}\right)
-> $$
->
-> As `N` grows large relative to `n`, the hypergeometric distribution
-> approaches the binomial distribution with $p = k/N$ (sampling without
-> replacement approximates sampling with replacement).
+The mean and variance of the hypergeometric distribution
+$h(x; N, n, k)$ are
+
+$$
+\mu = \frac{nk}{N} \quad \text{and} \quad \sigma^2 = \frac{N-n}{N-1} \cdot n \cdot \frac{k}{N} \left(1 - \frac{k}{N}\right)
+$$
+
+As `N` grows large relative to `n`, the hypergeometric distribution
+approaches the binomial distribution with $p = k/N$ (sampling without
+replacement approximates sampling with replacement).
 
 ## &sect; 5.4 negative binomial and geometric distributions
 
 ### negative binomial distribution
 
-> [!IMPORTANT]
->
-> If repeated independent trials can result in a success with
-> probability `p` and a failure with probability $q = 1-p$, then the
-> probability distribution of the random variable `X`, the number of
-> the trial on which the `k`th success occurs, is
->
-> $$
-> b^*(x; k, p) = \binom{x-1}{k-1} p^k q^{x-k}, \quad x = k, k+1, k+2, \ldots
-> $$
+If repeated independent trials can result in a success with
+probability `p` and a failure with probability $q = 1-p$, then the
+probability distribution of the random variable `X`, the number of
+the trial on which the `k`th success occurs, is
+
+$$
+b^*(x; k, p) = \binom{x-1}{k-1} p^k q^{x-k}, \quad x = k, k+1, k+2, \ldots
+$$
 
 ### geometric distribution
 
-> [!IMPORTANT]
->
-> The special case of the negative binomial distribution with $k = 1$
-> — the probability distribution of `X`, the number of the trial on
-> which the *first* success occurs:
->
-> $$
-> g(x; p) = pq^{x-1}, \quad x = 1, 2, 3, \ldots
-> $$
+The special case of the negative binomial distribution with $k = 1$
+— the probability distribution of `X`, the number of the trial on
+which the _first_ success occurs:
+
+$$
+g(x; p) = pq^{x-1}, \quad x = 1, 2, 3, \ldots
+$$
 
 ### theorem 5.3, mean & variance of the geometric distribution
 
-> [!IMPORTANT]
->
-> The mean and variance of a random variable following the geometric
-> distribution are
->
-> $$
-> \mu = \frac{1}{p} \quad \text{and} \quad \sigma^2 = \frac{1-p}{p^2}
-> $$
+The mean and variance of a random variable following the geometric
+distribution are
+
+$$
+\mu = \frac{1}{p} \quad \text{and} \quad \sigma^2 = \frac{1-p}{p^2}
+$$
 
 ## &sect; 5.5 poisson distribution and the poisson process
 
@@ -146,15 +136,15 @@
 > $$
 >
 > where `λ` is the average number of outcomes per unit time, distance,
-> area, or volume, & $\mu = \lambda t$. Poisson sums
-> $P(r; \lambda t) = \sum_{x=0}^r p(x; \lambda t)$ are tabulated.
+> area, or volume, & $\mu = \lambda t$. Poisson
+> sums $P(r; \lambda t) = \sum_{x=0}^r p(x; \lambda t)$ are tabulated.
 
 ### theorem 5.4, mean & variance of the poisson distribution
 
 > [!IMPORTANT]
 >
-> Both the mean and the variance of the Poisson distribution
-> $p(x; \lambda t)$ are $\lambda t$.
+> Both the mean and the variance of the Poisson
+> distribution $ p(x; \lambda t) $ are $\lambda t$ .
 
 ### theorem 5.5, poisson approximation to the binomial distribution
 

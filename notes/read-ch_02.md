@@ -35,8 +35,8 @@
 
 > [!IMPORTANT]
 >
-> Two events `A` & `B` are **mutually exclusive**, or disjoint, if
-> $A \cap B = \phi$ — that is, if `A` & `B` have no elements in common.
+> Two events `A` & `B` are **mutually exclusive**, or disjoint,
+> if $A \cap B = \phi$ &mdash; that is, if `A` & `B` have no elements in common.
 
 ### definition 2.6, union of two events
 
@@ -104,8 +104,7 @@
 
 > [!IMPORTANT]
 >
-> The number of permutations of `n` objects arranged in a circle is
-> $(n-1)!$.
+> The number of permutations of `n` objects arranged in a circle is $(n-1)!$ .
 
 ### theorem 2.4, permutations with repeated (indistinguishable) objects
 
@@ -191,8 +190,7 @@
 
 > [!IMPORTANT]
 >
-> If `A` & `B` are mutually exclusive, then
-> $P(A \cup B) = P(A) + P(B)$.
+> If `A` & `B` are mutually exclusive, then $P(A \cup B) = P(A) + P(B)$ .
 
 ### corollary 2.2, of theorem 2.7 (n mutually exclusive events)
 
@@ -232,8 +230,7 @@
 
 > [!IMPORTANT]
 >
-> If `A` & `A'` are complementary events, then
-> $P(A) + P(A') = 1$.
+> If `A` & `A'` are complementary events, then $P(A) + P(A') = 1$ .
 
 ## &sect; 2.6 conditional probability, independence, and the product rule
 
@@ -271,8 +268,7 @@
 > P(A \cap B) = P(A) P(B|A), \quad \text{provided } P(A) > 0.
 > $$
 >
-> Since $A \cap B \equiv B \cap A$, equivalently
-> $P(A \cap B) = P(B)P(A|B)$.
+> Since $A \cap B \equiv B \cap A$, equivalently $P(A \cap B) = P(B)P(A|B)$ .
 
 ### theorem 2.11, special multiplicative rule (independent events)
 
@@ -320,26 +316,22 @@
 
 ### theorem 2.13, total probability (rule of elimination)
 
-> [!IMPORTANT]
->
-> If the events $B_1, B_2, \ldots, B_k$ constitute a partition of the
-> sample space `S` such that $P(B_i) \neq 0$ for $i = 1, \ldots, k$,
-> then for any event `A` of `S`,
->
-> $$
-> P(A) = \sum_{i=1}^k P(B_i \cap A) = \sum_{i=1}^k P(B_i) P(A|B_i)
-> $$
+If the events $B_1, B_2, \ldots, B_k$ constitute a partition of the
+sample space `S` such that $P(B_i) \neq 0$ for $i = 1, \ldots, k$,
+then for any event `A` of `S`,
+
+$$
+P(A) = \sum_{i=1}^k P(B_i \cap A) = \sum_{i=1}^k P(B_i) P(A|B_i)
+$$
 
 ### theorem 2.14, bayes' rule
 
-> [!IMPORTANT]
->
-> If the events $B_1, B_2, \ldots, B_k$ constitute a partition of the
-> sample space `S` such that $P(B_i) \neq 0$ for $i = 1, \ldots, k$,
-> then for any event `A` in `S` such that $P(A) \neq 0$,
->
-> $$
-> P(B_r|A) = \frac{P(B_r \cap A)}{\sum_{i=1}^k P(B_i \cap A)} = \frac{P(B_r) P(A|B_r)}{\sum_{i=1}^k P(B_i) P(A|B_i)}
-> $$
->
-> for $r = 1, 2, \ldots, k$.
+If the events $B_1, B_2, \ldots, B_k$ constitute a partition of the
+sample space `S` such that $P(B_i) \neq 0$ for $i = 1, \ldots, k$,
+then for any event `A` in `S` such that $P(A) \neq 0$,
+
+$$
+P(B_r|A) = \frac{P(B_r \cap A)}{\sum_{i=1}^k P(B_i \cap A)} = \frac{P(B_r) P(A|B_r)}{\sum_{i=1}^k P(B_i) P(A|B_i)}
+$$
+
+for $r = 1, 2, \ldots, k$.

@@ -253,14 +253,12 @@
 
 ### theorem 4.10, chebyshev's theorem
 
-> [!IMPORTANT]
->
-> The probability that any random variable `X` will assume a value
-> within `k` standard deviations of the mean is at least $1 - 1/k^2$:
->
-> $$
-> P(\mu - k\sigma < X < \mu + k\sigma) \geq 1 - \frac{1}{k^2}
-> $$
->
-> Distribution-free (holds for any distribution) & gives only a lower
-> bound — use only when the form of the distribution is unknown.
+The probability that any random variable `X` will assume a value
+within `k` standard deviations of the mean is at least $1 - 1/k^2$:
+
+$$
+P(\mu - k\sigma < X < \mu + k\sigma) \geq 1 - \frac{1}{k^2}
+$$
+
+Distribution-free (holds for any distribution) & gives only a lower
+bound — use only when the form of the distribution is unknown.
