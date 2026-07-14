@@ -89,22 +89,26 @@ $$
 
 ### geometric distribution
 
-The special case of the negative binomial distribution with $k = 1$
-— the probability distribution of `X`, the number of the trial on
-which the _first_ success occurs:
-
-$$
-g(x; p) = pq^{x-1}, \quad x = 1, 2, 3, \ldots
-$$
+> [!IMPORTANT]
+>
+> The special case of the negative binomial distribution with $k = 1$
+> — the probability distribution of `X`, the number of the trial on
+> which the _first_ success occurs:
+>
+> $$
+> g(x; p) = pq^{x-1}, \quad x = 1, 2, 3, \ldots
+> $$
 
 ### theorem 5.3, mean & variance of the geometric distribution
 
-The mean and variance of a random variable following the geometric
-distribution are
-
-$$
-\mu = \frac{1}{p} \quad \text{and} \quad \sigma^2 = \frac{1-p}{p^2}
-$$
+> [!IMPORTANT]
+>
+> The mean and variance of a random variable following the geometric
+> distribution are
+>
+> $$
+> \mu = \frac{1}{p} \quad \text{and} \quad \sigma^2 = \frac{1-p}{p^2}
+> $$
 
 ## &sect; 5.5 poisson distribution and the poisson process
 
