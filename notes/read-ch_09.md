@@ -1,5 +1,8 @@
 ## &sect; 9.3 classical methods of estimation
 
+Unbiasedness and efficiency: the two criteria used to judge/choose
+between competing estimators of a parameter.
+
 ### definition 9.1, unbiased estimator
 
 > [!IMPORTANT]
@@ -29,6 +32,9 @@ smaller-variance one gives estimates that land closer to the true
 parameter more consistently.
 
 ## &sect; 9.4 single sample: estimating the mean
+
+Confidence intervals for a single mean `μ`, using `z` when `σ` is
+known and `t` when it isn't.
 
 ### confidence interval on μ, σ² known
 
@@ -133,6 +139,9 @@ accuracy improves as `n` grows.
 
 ## &sect; 9.6 prediction intervals
 
+An interval expected to contain a single future observation — distinct
+from a CI, which bounds the mean itself.
+
 ### prediction interval for a future observation, σ² known
 
 > [!IMPORTANT]
@@ -171,6 +180,10 @@ without it.
 
 ## &sect; 9.7 tolerance limits
 
+An interval built to contain a specified proportion of the whole
+population, at a stated confidence — different again from a CI or a
+prediction interval.
+
 ### tolerance limits
 
 > [!IMPORTANT]
@@ -187,6 +200,10 @@ interval) or a single future value (prediction interval) — the three
 interval types answer different questions and aren't interchangeable.
 
 ## &sect; 9.8 two samples: estimating the difference between two means
+
+CIs for `μ₁ − μ₂` across three variance cases: both known, unknown but
+equal (pooled `t`), and unknown/unequal (Satterthwaite-approximated
+`t`).
 
 ### confidence interval for μ₁ − μ₂, σ₁² and σ₂² known
 
@@ -267,6 +284,9 @@ chapter.
 
 ## &sect; 9.9 paired observations
 
+CI on the mean difference for dependent/paired samples — trades
+degrees of freedom for reduced variance when pairing is effective.
+
 ### confidence interval for μ_D = μ₁ − μ₂ for paired observations
 
 > [!IMPORTANT]
@@ -288,6 +308,9 @@ of fewer degrees of freedom (`n-1` instead of $n_1+n_2-2$ ), so it
 only pays off when within-pair correlation is strong.
 
 ## &sect; 9.10 single sample: estimating a proportion
+
+CI for a population proportion `p` via the normal approximation, plus
+the sample-size formula for a target margin of error.
 
 ### large-sample confidence intervals for p
 
@@ -356,6 +379,8 @@ conservative (larger than necessary) sample size.
 
 ## &sect; 9.11 two samples: estimating the difference between two proportions
 
+CI for `p₁ − p₂`, the two-proportion analog of &sect; 9.10.
+
 ### large-sample confidence interval for p₁ − p₂
 
 > [!IMPORTANT]
@@ -375,6 +400,8 @@ existing and a new process) — if the interval excludes 0, that's
 evidence the proportions differ.
 
 ## &sect; 9.12 single sample: estimating the variance
+
+Chi-squared-based CI for a single population variance `σ²`.
 
 ### confidence interval for σ²
 
@@ -397,6 +424,9 @@ and is _not_ robust to violations of it, unlike the `t`-based CIs on
 
 ## &sect; 9.13 two samples: estimating the ratio of two variances
 
+F-based CI for `σ₁²/σ₂²` — use to check the equal-variance assumption
+before picking which two-mean CI (&sect; 9.8) applies.
+
 ### confidence interval for σ₁²/σ₂²
 
 > [!IMPORTANT]
@@ -417,6 +447,9 @@ variances is a reasonable assumption. Square-root both endpoints for
 a CI on $\sigma_1/\sigma_2$.
 
 ## &sect; 9.14 maximum likelihood estimation (optional)
+
+MLE as a general-purpose method for deriving an estimator: pick the
+parameter value that maximizes the likelihood of the observed sample.
 
 ### definition 9.3, maximum likelihood estimator
 

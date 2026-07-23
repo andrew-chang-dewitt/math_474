@@ -1,5 +1,9 @@
 ## &sect; 8.1 random sampling
 
+Population vs. sample, and the formal definition of a random sample as
+`n` iid draws — the basis every later sampling-distribution result
+depends on.
+
 ### definition 8.1, population
 
 > [!IMPORTANT]
@@ -40,6 +44,10 @@ draws — needed before any sampling-distribution result (CLT, $\chi^2$,
 `t`, `F`) can be invoked.
 
 ## &sect; 8.2 some important statistics
+
+Defines "statistic" and lists the standard sample-level summaries
+(mean, median, variance, sd, range) plus a computational shortcut for
+`S²`.
 
 ### definition 8.4, statistic
 
@@ -91,6 +99,10 @@ Avoids computing $\bar{X}$ first — useful for hand/quick calculation of $s^2$ 
 
 ## &sect; 8.3 sampling distributions
 
+Names the chapter's central object: a statistic's own probability
+distribution, which is what lets sample data support inference about
+a population parameter.
+
 ### definition 8.5, sampling distribution
 
 > [!IMPORTANT]
@@ -101,6 +113,10 @@ Avoids computing $\bar{X}$ first — useful for hand/quick calculation of $s^2$ 
 The central object of this chapter: knowing the sampling distribution of $\bar{X}$ or $S^2$ is what lets sample data support or refute a claim about `μ` or `σ²` (the machinery behind all of Chapters 9-10).
 
 ## &sect; 8.4 sampling distribution of means and the central limit theorem
+
+The Central Limit Theorem: $\bar{X}$ is approximately normal for large
+`n` regardless of the population's shape, plus its two-sample
+extension for $\bar{X}_1 - \bar{X}_2$.
 
 ### theorem 8.2, central limit theorem
 
@@ -145,6 +161,9 @@ when both $\sigma_1, \sigma_2$ are known.
 
 ## &sect; 8.5 sampling distribution of $S^2$
 
+Under normality, $(n-1)S^2/\sigma^2$ has a chi-squared distribution —
+the basis for variance CIs/tests in Chapters 9-10.
+
 ### theorem 8.4, sampling distribution of $(n-1)S^2/\sigma^2$
 
 > [!IMPORTANT]
@@ -164,6 +183,9 @@ intervals/tests on a single variance in Chapters 9-10. One degree of
 freedom is spent estimating `μ` via $\bar{X}$.
 
 ## &sect; 8.6 t-distribution
+
+Defines the t-distribution, which replaces `Z` with `T = (X̄-μ)/(S/√n)`
+for small-sample inference on a mean when `σ` is unknown.
 
 ### theorem 8.5, the t-distribution
 
@@ -207,6 +229,10 @@ with `S` at the cost of switching from `Z` to `T`. Safe to use `Z`
 instead once $n \ge 30$.
 
 ## &sect; 8.7 f-distribution
+
+The F-distribution (ratio of two independent chi-squareds), used to
+compare two variances, plus the upper/lower-tail reciprocal relation
+needed to read F-tables.
 
 ### theorem 8.6, the f-distribution
 
@@ -257,6 +283,9 @@ variances (e.g. "are two processes equally variable?") — Chapters 9-10
 use this exact statistic.
 
 ## &sect; 8.8 quantile and probability plots
+
+Quantiles and the normal Q-Q plot as a visual check of whether a
+sample's distribution (esp. normality) matches an assumed shape.
 
 ### definition 8.6, quantile
 

@@ -1,5 +1,8 @@
 ## &sect; 10.1 statistical hypotheses: general concepts
 
+Core vocabulary for every test in the chapter: `H0`/`H1`, type I/II
+error, power, and the P-value.
+
 ### definition 10.1, statistical hypothesis
 
 > [!IMPORTANT]
@@ -71,6 +74,9 @@ statistical software reports by default.
 
 ## &sect; 10.2 testing a statistical hypothesis
 
+The CI/test-decision equivalence, and one- vs. two-tailed critical
+region mechanics.
+
 ### theorem, one- and two-tailed tests
 
 > [!IMPORTANT]
@@ -110,6 +116,9 @@ any hypothesized value without recomputing a test statistic.
 
 ## &sect; 10.4 single sample: tests concerning a single mean
 
+`z`- and `t`-test procedures for testing one mean, depending on
+whether `σ` is known.
+
 ### theorem, z-test for a single mean (variance known)
 
 > [!IMPORTANT]
@@ -141,6 +150,9 @@ case — whenever $\sigma$ isn't known and the sample is small enough
 would be unreliable.
 
 ## &sect; 10.5 two samples: tests on two means
+
+Tests for `μ₁ − μ₂` across known/pooled/unequal-variance and paired
+cases — the testing counterpart of the CIs in &sect; 9.8-9.9.
 
 ### theorem, z-test for two means (variances known)
 
@@ -212,6 +224,9 @@ and erodes that advantage.
 
 ## &sect; 10.6 choice of sample size for testing means
 
+Solving for the `n` needed to hit a target power against a specific
+alternative.
+
 ### theorem, sample size for a one-sided z-test on a mean
 
 > [!IMPORTANT]
@@ -235,6 +250,9 @@ practically-meaningful effect size $\delta$ given a target power.
 
 ## &sect; 10.8 one sample: test on a single proportion
 
+`z`-test for `H0: p = p0`, with a note on falling back to the exact
+binomial P-value for small `n`.
+
 ### theorem, z-test for a single proportion
 
 > [!IMPORTANT]
@@ -254,6 +272,8 @@ normal approximation.
 
 ## &sect; 10.9 two samples: tests on two proportions
 
+`z`-test for `H0: p₁ = p₂` using a pooled `p̂`.
+
 ### theorem, z-test for two proportions
 
 > [!IMPORTANT]
@@ -270,6 +290,9 @@ treatment groups' success rates) for large samples — pooling is valid
 specifically because `H0` asserts a common `p`.
 
 ## &sect; 10.10 one- and two-sample tests concerning variances
+
+Chi-squared test for a single `σ²` and F-test for equality of two
+variances — both very sensitive to non-normality.
 
 ### theorem, chi-squared test for a single variance
 
@@ -306,6 +329,9 @@ upper-tail F-tables.
 
 ## &sect; 10.11 goodness-of-fit test
 
+Chi-squared test comparing observed category counts against a
+hypothesized distribution's expected counts.
+
 ### theorem, chi-squared goodness-of-fit test
 
 > [!IMPORTANT]
@@ -326,6 +352,9 @@ expected frequency $e_i \geq 5$ (combine adjacent cells if not),
 which reduces the degrees of freedom accordingly.
 
 ## &sect; 10.12 test for independence (categorical data)
+
+Chi-squared test of independence between two categorical variables in
+a contingency table.
 
 ### theorem, chi-squared test for independence
 
@@ -360,6 +389,10 @@ and for expected frequencies below 5, use the Fisher-Irwin exact
 test instead.
 
 ## &sect; 10.13 test for homogeneity
+
+Chi-squared test for whether several populations share the same
+categorical distribution — same statistic as &sect; 10.12, different
+sampling design.
 
 ### theorem, chi-squared test for homogeneity
 
