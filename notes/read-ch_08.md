@@ -43,6 +43,12 @@ The formal justification for treating repeated measurements as iid
 draws — needed before any sampling-distribution result (CLT, $\chi^2$,
 `t`, `F`) can be invoked.
 
+**Example.** Selecting `n = 8` storage batteries at random from a manufacturing
+process that has held the same specification throughout, and recording each
+battery's length of life as $x_1, \ldots, x_8$, gives the values of a random sample $X_1, \ldots, X_8$.
+Assuming the population of battery lives is normal, each $X_i$
+has that same normal distribution as the population.
+
 ## &sect; 8.2 some important statistics
 
 Defines "statistic" and lists the standard sample-level summaries
@@ -85,6 +91,16 @@ These are the sample-level counterparts of the population `μ` and
 sampling-distribution result (this chapter) and every estimator/test
 (Chapters 9-10) is built from.
 
+**Example (mode).** The data set $0.32, 0.53, 0.28, 0.37, 0.47, 0.43, 0.36, 0.42, 0.38, 0.43$
+has sample mode $0.43$, since it occurs more than any other value.
+
+**Example (variance).** Coffee prices at 4 grocery stores increased 12, 15, 17, and
+20 cents for a 1-lb bag. Then $\bar x = (12+15+17+20)/4 = 16$ cents, and
+
+$$
+s^2 = \frac{(12-16)^2 + (15-16)^2 + (17-16)^2 + (20-16)^2}{3} = \frac{34}{3}.
+$$
+
 ### theorem 8.1, computational form of the sample variance
 
 > [!IMPORTANT]
@@ -96,6 +112,14 @@ sampling-distribution result (this chapter) and every estimator/test
 > $$
 
 Avoids computing $\bar{X}$ first — useful for hand/quick calculation of $s^2$ directly from $\sum x_i$ and $\sum x_i^2$.
+
+**Example.** For the sample $3, 4, 5, 6, 6, 7$ (trout caught by 6 fishermen), $\sum x_i^2 = 171$, $\sum x_i = 31$, $n = 6$, so
+
+$$
+s^2 = \frac{1}{(6)(5)}\left[(6)(171) - (31)^2\right] = \frac{13}{6},
+$$
+
+giving $s = \sqrt{13/6} \approx 1.47$ and range $R = 7 - 3 = 4$.
 
 ## &sect; 8.3 sampling distributions
 
@@ -134,6 +158,14 @@ extension for $\bar{X}_1 - \bar{X}_2$.
 
 The single most-used result for inference on a mean: lets you compute $P(\bar{X} \in \text{interval})$ for _any_ population shape once `n` is large (rule of thumb $n \ge 30$ ), or exactly for any `n` if the population itself is normal.
 
+**Example.** Light bulbs from a certain firm have lifetimes approximately normal
+with $\mu = 800$ hours, $\sigma = 40$ hours. For a random sample of $n = 16$ bulbs, $\mu_{\bar X} = 800$
+and $\sigma_{\bar X} = 40/\sqrt{16} = 10$, so
+
+$$
+P(\bar X < 775) = P\!\left(Z < \frac{775-800}{10}\right) = P(Z < -2.5) = 0.0062.
+$$
+
 ### theorem 8.3, sampling distribution of the difference of two means
 
 > [!IMPORTANT]
@@ -159,6 +191,15 @@ Two-sample analog of the CLT — used to test/estimate whether two
 population means differ (e.g. comparing two manufacturing processes)
 when both $\sigma_1, \sigma_2$ are known.
 
+**Example.** Manufacturer A's picture tubes have $\mu_1 = 6.5$ years, $\sigma_1 = 0.9$ year, and manufacturer B's have $\mu_2 = 6.0$ years, $\sigma_2 = 0.8$ year. For samples of $n_1 = 36$ from A and $n_2 = 49$ from B,
+
+$$
+\mu_{\bar X_1 - \bar X_2} = 0.5, \qquad
+\sigma_{\bar X_1 - \bar X_2} = \sqrt{0.81/36 + 0.64/49} = 0.189,
+$$
+
+so $P(\bar X_1 - \bar X_2 \ge 1.0) = P(Z > (1.0-0.5)/0.189) = P(Z > 2.65) = 0.0040$.
+
 ## &sect; 8.5 sampling distribution of $S^2$
 
 Under normality, $(n-1)S^2/\sigma^2$ has a chi-squared distribution —
@@ -181,6 +222,18 @@ Lets you make probability statements about the sample variance $s^2$
 relative to an assumed $\sigma^2$ — the basis for confidence
 intervals/tests on a single variance in Chapters 9-10. One degree of
 freedom is spent estimating `μ` via $\bar{X}$.
+
+**Example.** A car-battery maker claims lifetimes average 3 years with `σ = 1`
+year. Five batteries last 1.9, 2.4, 3.0, 3.5, 4.2 years, giving $s^2 = 0.815$ (via
+theorem 8.1), so
+
+$$
+\chi^2 = \frac{(4)(0.815)}{1} = 3.26,
+$$
+
+a value with $v = 4$ degrees of freedom. Since 95% of that $\chi^2$ distribution
+falls between 0.484 and 11.143, this is a reasonable value, and the maker has no
+reason to doubt $\sigma = 1$ year.
 
 ## &sect; 8.6 t-distribution
 
@@ -210,6 +263,8 @@ Defines the shape (symmetric, heavier tails than normal, `v`-dependent
 variance) underlying inference on `μ` when `σ` is unknown and estimated
 by `S`. Approaches $N(0,1)$ as $v \to \infty$.
 
+**Example.** The `t`-value with $v = 14$ leaving an area of 0.025 to the left (0.975 to the right) is $t_{0.975} = -t_{0.025} = -2.145$, using symmetry ( $t_{1-\alpha} = -t_\alpha$ ). Similarly, since $t_{0.05} = 1.761$ and $-t_{0.025} = -2.145$ for $v=14$, $P(-t_{0.025} < T < t_{0.05}) = 1 - 0.05 - 0.025 = 0.925$.
+
 ### corollary 8.1, t-statistic for a normal sample mean with unknown $\sigma$
 
 > [!IMPORTANT]
@@ -227,6 +282,17 @@ The workhorse statistic for small-sample inference on a single mean
 (confidence intervals & hypothesis tests, Chapters 9-10) — replaces `σ`
 with `S` at the cost of switching from `Z` to `T`. Safe to use `Z`
 instead once $n \ge 30$.
+
+**Example.** An engineer claims a batch process yields $\mu = 500$ grams per mL
+on average, and will accept the claim if a sample of $n = 25$ batches gives a
+`t`-value between $-t_{0.05}$ and $t_{0.05}$ (so between $\pm 1.711$, $v=24$ ). A
+sample gives $\bar x = 518$, $s = 40$, so
+
+$$
+t = \frac{518 - 500}{40/\sqrt{25}} = 2.25,
+$$
+
+well above 1.711 — evidence the process actually yields more than 500 g/mL.
 
 ## &sect; 8.7 f-distribution
 
@@ -263,6 +329,12 @@ variability.
 > $$
 
 `F`-tables (e.g. Table A.6) only list upper-tail values ( $\alpha = 0.05, 0.01$ ) — this lets you recover the lower-tail values $f_{0.95}$, $f_{0.99}$ needed for two-sided intervals/tests without a separate table.
+
+**Example.** Since $f_{0.05}(10, 6) = 4.06$ (from Table A.6),
+
+$$
+f_{0.95}(6, 10) = \frac{1}{f_{0.05}(10, 6)} = \frac{1}{4.06} = 0.246.
+$$
 
 ### theorem 8.8, f-statistic for the ratio of two sample variances
 
@@ -313,3 +385,9 @@ A near-straight-line plot supports the assumption of normality
 (intercept $\approx \mu$, slope $\approx \sigma$ ) — a graphical
 diagnostic used before applying any of the normal-theory results above
 (`t`, $\chi^2$, `F`) or the formal goodness-of-fit tests of Chapter 10.
+
+**Example.** Density measurements (organisms per square meter) from two
+sampling stations in a stream-ecosystem study are plotted on a shared normal
+quantile-quantile plot. The plot is far from a single straight line — station 1
+shows extra values clustered in both tails — so it's unlikely both samples came
+from a common $N(\mu, \sigma)$ distribution.
