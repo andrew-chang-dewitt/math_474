@@ -3,6 +3,43 @@
 Core vocabulary for every test in the chapter: `H0`/`H1`, type I/II
 error, power, and the P-value.
 
+Big idea: decide between two claims using sample data instead of the
+full population. State a **null hypothesis** `H0` (the status quo) against
+an **alternative** `H1` (the claim you want evidence for), then either
+**reject `H0`** or **fail to reject `H0`** — `H0` is never formally
+"accepted."
+
+Running example used throughout this section: an old vaccine is 25%
+effective; a new vaccine is tested on 20 people, and if more than 8
+avoid the virus for 2 years, the new vaccine is judged superior. This
+gives $H_0: p = 0.25$, $H_1: p > 0.25$, tested via $X \sim \text{Binomial}(20, p)$,
+the number protected.
+
+Type I error (Def 10.2, reject `H0` when true) has probability $\alpha$;
+for this example, $\alpha = P(X>8 \mid p=0.25) = 1 - \sum_{x=0}^8 b(x;20,0.25) = 0.0409$.
+Type II error (Def 10.3, fail to reject `H0` when false) has probability
+$\beta$, computable only against a specific alternative — against
+$p=0.5$, $\beta = 0.2517$; against $p=0.7$, $\beta = 0.0051$ ($\beta$
+shrinks as the true value moves further from `H0`). Raising the sample
+size (20 &rarr; 100) shrinks $\alpha$ and $\beta$ simultaneously — normally,
+for fixed $n$, lowering one raises the other.
+
+Power (Def 10.4) is $1-\beta$: the probability of correctly rejecting
+`H0` against a specific alternative. A P-value (Def 10.5) is the lowest
+significance level at which the observed test statistic is significant
+— equivalently, $P(\text{result this extreme or more} \mid H_0 \text{ true})$;
+small P-value means strong evidence against `H0`, and it's what most
+statistical software reports instead of a fixed-$\alpha$ reject/fail-to-reject
+call.
+
+Tests also split by tail: $H_1: \theta > \theta_0$ or $\theta < \theta_0$
+gives a **one-tailed** test (critical region in the direction of the
+inequality); $H_1: \theta \neq \theta_0$ gives a **two-tailed** test
+(critical region split across both tails). E.g. a cereal maker claiming
+fat "does not exceed" 1.5g gives $H_0: \mu=1.5$, $H_1: \mu>1.5$
+(one-tailed, right tail); a realtor claiming exactly 60% of homes are
+3-bedroom gives $H_0: p=0.6$, $H_1: p \neq 0.6$ (two-tailed, both tails).
+
 ### definition 10.1, statistical hypothesis
 
 > [!IMPORTANT]
