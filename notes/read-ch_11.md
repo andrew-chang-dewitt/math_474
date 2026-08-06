@@ -13,7 +13,7 @@ keywords:
 meta:
   byline: Andrew Chang-DeWitt
   published: "2026-07-29T11:25-06:00"
-  updated: "2026-07-29T11:25-06:00"
+  updated: "2026-08-05T11:25-06:00"
 ---
 
 ## &sect; 11.1 introduction to linear regression
@@ -260,6 +260,16 @@ Choice of model (§11.7): everything so far assumes the linear model is *correct
 > reject $H_0$ if $f > f_\alpha(1,n-2)$.
 
 This is algebraically **identical** to the two-sided `t`-test on $\beta_1$ from §11.5 — in fact $t^2 = f(1,n-2)$ exactly. Use the `t`-test when you need a one-sided alternative or a CI; use the `F`/ANOVA form when you want the standard regression-output table (Source/DF/SS/MS/F/P), which is what most statistical software reports by default.
+
+Under $H_0$, $SSR/\sigma^2$ and $SSE/\sigma^2$ are independent chi-squared variables with 1 and $n-2$ df, and (by the chi-squared additivity theorem) $SST/\sigma^2$ is chi-squared with $n-1$ df — this is *why* the $f$ statistic above works. Computations are conventionally laid out in an **ANOVA table** — §11.8's namesake "analysis-of-variance approach" is exactly this table plus the $f$ -test above, not a separate technique from what's already stated:
+
+| Source | SS | df | MS | f |
+| --- | --- | --- | --- | --- |
+| Regression | $SSR$ | $1$ | $SSR/1$ | $SSR/s^2$ |
+| Error | $SSE$ | $n-2$ | $s^2=SSE/(n-2)$ | |
+| Total | $SST$ | $n-1$ | | |
+
+Rejecting $H_0$ — f exceeds $f_\alpha(1,n-2)$ — means the postulated straight-line model accounts for a significant amount of response variation; failing to reject means the data don't support the model. This table format is what most regression software prints by default.
 
 :::
 
